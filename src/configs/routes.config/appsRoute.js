@@ -625,6 +625,12 @@ const appsRoute = [
     authority: [ADMIN, USER],
   },
   {
+    key: "support.blogs",
+    path: `${SUPPORT_RESOURCES_PREFIX_PATH}/blogs`,
+    component: React.lazy(() => import("views/support-resources/blogs")),
+    authority: [ADMIN, USER],
+  },
+  {
     key: "support.videoGuides",
     path: `${SUPPORT_RESOURCES_PREFIX_PATH}/videoGuides`,
     component: React.lazy(() => import("views/support-resources/video_guides")),

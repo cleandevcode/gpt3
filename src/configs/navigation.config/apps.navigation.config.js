@@ -1073,6 +1073,17 @@ const appsNavigationConfig = [
         authority: [ADMIN, USER],
         subMenu: [
           {
+            key: "support.blogs",
+            path: `${SUPPORT_RESOURCES_PREFIX_PATH}/blogs`,
+            title: "Blogs",
+            translateKey: "nav.support.blogs",
+            icon: "apps",
+            type: NAV_ITEM_TYPE_COLLAPSE,
+            authority: [ADMIN, USER],
+            subMenu: [],
+            disabled: false,
+          },
+          {
             key: "support.videoGuides",
             path: `${SUPPORT_RESOURCES_PREFIX_PATH}/videoGuides`,
             title: "Video Guides",
@@ -1081,7 +1092,7 @@ const appsNavigationConfig = [
             type: NAV_ITEM_TYPE_COLLAPSE,
             authority: [ADMIN, USER],
             subMenu: [],
-            disabled: true,
+            disabled: false,
           },
           {
             key: "support.faq",

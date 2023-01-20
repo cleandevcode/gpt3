@@ -1,0 +1,60 @@
+import React from "react";
+import { Card, Avatar } from "components/ui";
+import moment from "moment";
+import { TextEllipsis } from "components/shared";
+import { HiOutlineUser } from "react-icons/hi";
+
+const Blog = ({ blog }) => {
+  const { title, author, content, image, createdat } = blog;
+
+  const cardFooter = (
+    <div className="flex items-center justify-between">
+      <div className="flex items-center ">
+        <Avatar
+          size={35}
+          className="mr-2"
+          shape="circle"
+          src={author?.avatar?.url}
+          icon={<HiOutlineUser />}
+        />
+        <span>
+          <h6 className="text-sm">{author?.name}</h6>
+          <span className="text-xs">{author?.job}</span>
+        </span>
+      </div>
+      <span className="text-sm">
+        {moment(createdat).format("MMM DD, YYYY")}
+      </span>
+    </div>
+  );
+
+  const cardHeader = (
+    <div className="rounded-tl-lg rounded-tr-lg overflow-hidden h-[220px] w-full">
+      <img
+        src={image?.url}
+        alt="card header"
+        className="h-full w-full"
+        style={{ objectFit: "cover" }}
+      />
+    </div>
+  );
+
+  return (
+    // <div className="max-w-xs">
+    <Card
+      clickable
+      className="hover:shadow-lg transition duration-150 ease-in-out dark:border dark:border-gray-600 dark:border-solid h-[520px] "
+      header={cardHeader}
+      footer={cardFooter}
+      headerClass="p-0"
+      footerBorder={false}
+      headerBorder={false}
+    >
+      <h4 className="font-bold my-1">{title}</h4>
+      <TextEllipsis text={content} maxTextCount={300} />
+    </Card>
+    // </div>
+  );
+};
+
+export default Blog;
