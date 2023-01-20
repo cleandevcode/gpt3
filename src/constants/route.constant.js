@@ -1,0 +1,19 @@
+export const ROOT = "/";
+export const APP_PREFIX_PATH = "/app";
+export const AUTH_PREFIX_PATH = "/auth";
+export const UI_COMPONENTS_PREFIX_PATH = "/ui-components";
+export const PAGES_PREFIX_PATH = "/pages";
+export const DOCS_PREFIX_PATH = "/docs";
+
+export const PROJECT_MANAGE_PPREFIX_PATH = "/project_management";
+export const CONTENT_ORGANIZER_PREFIX_PATH = "/content_organizer";
+export const COMMUNICATION_PREFIX_PATH = "/communication";
+export const SOCIAL_MEDIA_MANAGER_PREFIX_PATH = "/social_media";
+export const AI_ANALYTICS_PREFIX_PATH = "/analytics";
+export const KNOWLEDGE_BASE_PREFIX_PATH = "/knowledge_base";
+export const NEWSLETTER_RELEASE_PREFIX_PATH = "/newsletter_release";
+export const ROYALTY_PROGRAM_PREFIX_PATH = "/royalty_program";
+export const TEAM_PREFIX_PATH = "/team";
+export const SUPPORT_RESOURCES_PREFIX_PATH = "/support_resources";
+export const LEAD_GENERATION_PATH = "/lead_generation";
+export const AD_CREATIVES_PATH = "/ad_creatives";

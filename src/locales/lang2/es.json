@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "menu": "Menú",
+    "account": {
+      "root": "SU CUENTA",
+      "profile": "Crear perfil"
+    },
+    "dashboard": {
+      "root": "TABLERO",
+      "map_of_users": "Mapa de usuarios",
+      "user_statistics": "Estadísticas de usuario",
+      "reminder": "Recordatorios/Lista de tareas pendientes"
+    },
+    "services": {
+      "root": "SERVICIOS",
+      "social_media": "Herramientas de redes sociales",
+      "marketing": "Herramientas de marketing",
+      "business": "Herramientas comerciales",
+      "writing": "Herramientas de escritura",
+      "miscellaneous": "Misceláneas",
+      "all": "Todos Nuestros Servicios"
+    },
+    "project": {
+      "root": "GESTIÓN DE PROYECTOS",
+      "current": "Proyectos actuales",
+      "past": "Proyectos pasados",
+      "favorites": "Favoritos",
+      "top_searched_questions": "Preguntas más buscadas",
+      "top_searched_topics": "Temas más buscados",
+      "top_searched_services": "Servicios más buscados",
+      "top_searched_words": "Palabras más buscadas",
+      "top_used_tools": "Herramientas más usadas"
+    },
+    "content": {
+      "root": "ORGANIZADOR DE CONTENIDO",
+      "videos": "Vídeos",
+      "photos": "Fotos",
+      "documents": "Documentos"
+    },
+    "communication": "COMUNICACIÓN",
+    "social_media_manager": "GERENTE DE MEDIOS SOCIALES",
+    "ai_analytics": {
+      "root": "ANÁLISIS DE IA",
+      "allReports": "Todos los informes",
+      "pastReports": "Informes anteriores",
+      "industry": "Evaluación comparativa de la industria",
+      "statistics": "Publicar estadísticas"
+    },
+    "knowledgeBase": {
+      "root": "BASE DE CONOCIMIENTOS",
+      "articles": "Artículos",
+      "services": "Próximos servicios",
+      "roadmap": "Mapa vial",
+      "inspiration": "Inspiración",
+      "community": "Comunidad",
+      "resources": "Recursos"
+    },
+    "newsletter": {
+      "root": "COMUNICADO DE BOLETÍN",
+      "campaign": "Campaña",
+      "audiences": "Audiencias"
+    },
+    "royaltyProgram": {
+      "root": "PROGRAMA DE REGALÍAS",
+      "referral": "Enlace de referencia",
+      "track": "Seguimiento de la actividad del usuario",
+      "rewards": "Recompensas e hitos",
+      "abr": "Recompensas basadas en acciones",
+      "badge": "Nivel de insignia",
+      "lcr": "Valoración de clientes leales"
+    },
+    "team": {
+      "root": "EQUIPO",
+      "upgradePackages": "Paquetes de actualización"
+    },
+    "support": {
+      "root": "APOYO Y RECURSOS",
+      "videoGuides": "Videoguías",
+      "faq": "Preguntas más frecuentes",
+      "contactUs": "Contáctenos"
+    },
+    "lead_generation": {
+      "root": "GENERACIÓN LÍDER",
+      "real_estate": "Bienes raíces",
+      "interior_design": "Diseño de interiores",
+      "developer": "Desarrollador"
+    },
+    "ad_creatives": {
+      "root": "CREATIVAS DE ANUNCIOS",
+      "video": "Anuncios de vídeo",
+      "picture": "Anuncios gráficos"
+    }
+  }
+}

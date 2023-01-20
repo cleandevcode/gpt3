@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "menu": "菜单",
+    "account": {
+      "root": "您的帐户",
+      "profile": "创建个人资料"
+    },
+    "dashboard": {
+      "root": "仪表板",
+      "map_of_users": "用户地图",
+      "user_statistics": "用户统计",
+      "reminder": "提醒/待办事项列表"
+    },
+    "services": {
+      "root": "服务",
+      "social_media": "社交媒体工具",
+      "marketing": "营销工具",
+      "business": "商业工具",
+      "writing": "书写工具",
+      "miscellaneous": "各种各样的",
+      "all": "我们所有的服务"
+    },
+    "project": {
+      "root": "项目管理",
+      "current": "当前项目",
+      "past": "过去的项目",
+      "favorites": "收藏夹",
+      "top_searched_questions": "热门搜索问题",
+      "top_searched_topics": "热门搜索主题",
+      "top_searched_services": "热门搜索服务",
+      "top_searched_words": "热门搜索词",
+      "top_used_tools": "最常用的工具"
+    },
+    "content": {
+      "root": "内容组织者",
+      "videos": "影片",
+      "photos": "相片",
+      "documents": "文件"
+    },
+    "communication": "沟通",
+    "social_media_manager": "社交媒体经理",
+    "ai_analytics": {
+      "root": "人工智能分析",
+      "allReports": "所有报告",
+      "pastReports": "过去的报告",
+      "industry": "行业标杆",
+      "statistics": "发布统计"
+    },
+    "knowledgeBase": {
+      "root": "知识库",
+      "articles": "文章",
+      "services": "即将到来的服务",
+      "roadmap": "路线图",
+      "inspiration": "灵感",
+      "community": "社区",
+      "resources": "资源"
+    },
+    "newsletter": {
+      "root": "通讯发布",
+      "campaign": "活动",
+      "audiences": "听众"
+    },
+    "royaltyProgram": {
+      "root": "特许权使用费计划",
+      "referral": "推荐链接",
+      "track": "跟踪用户活动",
+      "rewards": "奖励和里程碑",
+      "abr": "基于行动的奖励",
+      "badge": "徽章等级",
+      "lcr": "忠诚客户评级"
+    },
+    "team": {
+      "root": "团队",
+      "upgradePackages": "升级包"
+    },
+    "support": {
+      "root": "支持与资源",
+      "videoGuides": "视频指南",
+      "faq": "常问问题",
+      "contactUs": "联系我们"
+    },
+    "lead_generation": {
+      "root": "领先一代",
+      "real_estate": "房地产",
+      "interior_design": "室内设计",
+      "developer": "开发商"
+    },
+    "ad_creatives": {
+      "root": "广告创意",
+      "video": "视频广告",
+      "picture": "图片广告"
+    }
+  }
+}

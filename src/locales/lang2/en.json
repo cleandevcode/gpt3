@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "account": {
+      "root": "YOUR ACCOUNT",
+      "profile": "Create Profile"
+    },
+    "dashboard": {
+      "root": "DASHBOARD",
+      "map_of_users": "Map Of Users",
+      "user_statistics": "User Statistics",
+      "reminder": "Reminders/To-Do List"
+    },
+    "services": {
+      "root": "SERVICES",
+      "social_media": "Social Media Tools",
+      "marketing": "Marketing Tools",
+      "business": "Business Tools",
+      "writing": "Writing Tools",
+      "miscellaneous": "Miscellaneous",
+      "all": "All Our Services"
+    },
+    "project": {
+      "root": "PROJECT MANAGEMENT",
+      "current": "Current Projects",
+      "past": "Past Projects",
+      "favorites": "Favorites",
+      "top_searched_questions": "Top Searched Questions",
+      "top_searched_topics": "Top Searched Topics",
+      "top_searched_services": "Top Searched Services",
+      "top_searched_words": "Top Searched Words",
+      "top_used_tools": "Top Used Tools"
+    },
+    "content": {
+      "root": "CONTENT ORGANIZER",
+      "videos": "Videos",
+      "photos": "Photos",
+      "documents": "Documents"
+    },
+    "communication": "COMMUNICATION",
+    "social_media_manager": "SOCIAL MEDIA MANAGER",
+    "ai_analytics": {
+      "root": "AI ANALYTICS",
+      "allReports": "All Reports",
+      "pastReports": "Past Reports",
+      "industry": "Industry Benchmarking",
+      "statistics": "Post Statistics"
+    },
+    "knowledgeBase": {
+      "root": "KNOWLEDGE BASE",
+      "articles": "Articles",
+      "services": "Upcoming Services",
+      "roadmap": "Roadmap",
+      "inspiration": "Inspiration",
+      "community": "Community",
+      "resources": "Resources"
+    },
+    "newsletter": {
+      "root": "NEWSLETTER RELEASE",
+      "campaign": "Campaign",
+      "audiences": "Audiences"
+    },
+    "royaltyProgram": {
+      "root": "ROYALTY PROGRAM",
+      "referral": "Referral Link",
+      "track": "Track User Activity",
+      "rewards": "Rewards & Milestones",
+      "abr": "Action Based Rewards",
+      "badge": "Badge Level",
+      "lcr": "Loyalty Customer Rating"
+    },
+    "team": {
+      "root": "TEAM",
+      "upgradePackages": "Upgrade Packages"
+    },
+    "support": {
+      "root": "SUPPORT & RESOURCES",
+      "videoGuides": "Video Guides",
+      "faq": "FAQ",
+      "contactUs": "Contact Us"
+    },
+    "lead_generation": {
+      "root": "LEAD GENERATION",
+      "real_estate": "Real Estate",
+      "interior_design": "Interior Design",
+      "developer": "Developer"
+    },
+    "ad_creatives": {
+      "root": "AD CREATIVES",
+      "video": "Video Ads",
+      "picture": "Picture Ads"
+    }
+  }
+}

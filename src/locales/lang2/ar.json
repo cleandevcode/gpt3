@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "menu": "قائمة",
+    "account": {
+      "root": "الحساب الخاص بك",
+      "profile": "إنشاء ملف تعريف"
+    },
+    "dashboard": {
+      "root": "لوحة القيادة",
+      "map_of_users": "خريطة المستخدمين",
+      "user_statistics": "إحصائيات المستخدم",
+      "reminder": "تذكير / قائمة المهام"
+    },
+    "services": {
+      "root": "خدمات",
+      "social_media": "أدوات وسائل التواصل الاجتماعي",
+      "marketing": "أدوات التسويق",
+      "business": "أدوات العمل",
+      "writing": "أدوات الكتابة",
+      "miscellaneous": "متنوع",
+      "all": "جميع خدماتنا"
+    },
+    "project": {
+      "root": "ادارة مشروع",
+      "current": "المشاريع الحالية",
+      "past": "المشاريع السابقة",
+      "favorites": "المفضلة",
+      "top_searched_questions": "أهم الأسئلة التي تم البحث عنها",
+      "top_searched_topics": "أهم المواضيع التي تم البحث عنها",
+      "top_searched_services": "أهم الخدمات التي تم البحث عنها",
+      "top_searched_words": "أهم الكلمات التي تم البحث عنها",
+      "top_used_tools": "أفضل الأدوات المستخدمة"
+    },
+    "content": {
+      "root": "منظم المحتوى",
+      "videos": "أشرطة فيديو",
+      "photos": "الصور",
+      "documents": "وثائق"
+    },
+    "communication": "الاتصالات",
+    "social_media_manager": "مدير التواصل الاجتماعي",
+    "ai_analytics": {
+      "root": "تحليلات الذكاء الاصطناعي",
+      "allReports": "كافة التقارير",
+      "pastReports": "التقارير السابقة",
+      "industry": "قياس الصناعة",
+      "statistics": "إحصائيات المشاركة"
+    },
+    "knowledgeBase": {
+      "root": "قاعدة المعرفة",
+      "articles": "مقالات",
+      "services": "الخدمات القادمة",
+      "roadmap": "خريطة الطريق",
+      "inspiration": "وحي - الهام",
+      "community": "تواصل اجتماعي",
+      "resources": "موارد"
+    },
+    "newsletter": {
+      "root": "إصدار النشرة الإخبارية",
+      "campaign": "الحملة الانتخابية",
+      "audiences": "الجماهير"
+    },
+    "royaltyProgram": {
+      "root": "برنامج رويال",
+      "referral": "رابط الإحالة",
+      "track": "تتبع نشاط المستخدم",
+      "rewards": "المكافآت والمعالم",
+      "abr": "المكافآت القائمة على العمل",
+      "badge": "مستوى الشارة",
+      "lcr": "تصنيف الولاء للعملاء"
+    },
+    "team": {
+      "root": "فريق",
+      "upgradePackages": "ترقية الحزم"
+    },
+    "support": {
+      "root": "الدعم والموارد",
+      "videoGuides": "أدلة الفيديو",
+      "faq": "التعليمات",
+      "contactUs": "اتصل بنا"
+    },
+    "lead_generation": {
+      "root": "تقود الجيل",
+      "real_estate": "العقارات",
+      "interior_design": "تصميم داخلي",
+      "developer": "مطور"
+    },
+    "ad_creatives": {
+      "root": "إبداعات الإعلانات",
+      "video": "إعلانات الفيديو",
+      "picture": "الإعلانات المصورة"
+    }
+  }
+}
