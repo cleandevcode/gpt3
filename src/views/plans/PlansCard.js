@@ -27,8 +27,7 @@ const PlansCard = ({ plan }) => {
         dispatch(setUser(res.data.updatedUser));
         console.log(res.data);
         // test remove
-        return;
-        window.location.href = res.data.session.success_url;
+        window.location.href = res.data.session.url;
       }
     });
   };
@@ -56,9 +55,9 @@ const PlansCard = ({ plan }) => {
         </div>
 
         <span className="text-emerald-600 font-semibold">
-          {plan.id === "price_1MJg02E7WZj5EJtA1sjdjffX"
+          {plan.id === "price_1MTVUMECO2rmK7GAbuNqVgTe"
             ? "Premium"
-            : plan.id === "price_1ML91EE7WZj5EJtARMjZNhu3"
+            : plan.id === "price_1MTVUMECO2rmK7GAyNZvWXIF"
             ? "Standard"
             : "Basic"}
         </span>
