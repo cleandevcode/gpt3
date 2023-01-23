@@ -27,6 +27,7 @@ const PlansCard = ({ plan }) => {
         dispatch(setUser(res.data.updatedUser));
         console.log(res.data);
         // test remove
+        return;
         window.location.href = res.data.session.success_url;
       }
     });
