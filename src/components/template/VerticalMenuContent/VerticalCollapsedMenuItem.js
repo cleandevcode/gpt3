@@ -41,6 +41,7 @@ const DefaultItem = ({ nav, onLinkClick, userAuthority }) => {
         eventKey={nav.key}
         expanded={false}
         className="mb-2"
+        isPath={nav.path}
       >
         {nav.subMenu.map((subNav) => (
           <AuthorityCheck
