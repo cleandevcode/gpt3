@@ -3,9 +3,12 @@ import { Card, Avatar } from "components/ui";
 import moment from "moment";
 import { TextEllipsis } from "components/shared";
 import { HiOutlineUser } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { SUPPORT_RESOURCES_PREFIX_PATH } from "constants/route.constant";
 
 const Blog = ({ blog }) => {
-  const { title, author, content, image, createdat } = blog;
+  const navigate = useNavigate();
+  const { title, author, content, image, createdat, slug } = blog;
 
   const cardFooter = (
     <div className="flex items-center justify-between">
@@ -49,6 +52,9 @@ const Blog = ({ blog }) => {
       headerClass="p-0"
       footerBorder={false}
       headerBorder={false}
+      onClick={() => {
+        navigate(`${SUPPORT_RESOURCES_PREFIX_PATH}/blogs/${slug}`);
+      }}
     >
       <h4 className="font-bold my-1">{title}</h4>
       <TextEllipsis text={content} maxTextCount={300} />

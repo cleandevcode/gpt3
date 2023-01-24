@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Card, Avatar, Button } from "components/ui";
+import { Card, Button } from "components/ui";
 import { IconText } from "components/shared";
 import { FcApproval } from "react-icons/fc";
 import { apiPlanSubscription } from "services/PlansServies";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "store/auth/userSlice";
 
-const PlansCard = ({ plan }) => {
+const PlansCard = ({ plan, selected, inDialog }) => {
   const token = useSelector((state) => state?.auth?.session?.token);
   const userEmail = useSelector((state) => state?.auth?.user?.email);
   const [isLoading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const PlansCard = ({ plan }) => {
   };
 
   return (
-    <div className="max-w-xs text-center">
+    <div className={`w-full  text-center`}>
       <Card
         // clickable
         className="hover:shadow-lg transition duration-150 ease-in-out dark:border dark:border-gray-600 dark:border-solid"
@@ -54,31 +54,35 @@ const PlansCard = ({ plan }) => {
           <small>per month!</small>
         </div>
 
-        <span className="text-emerald-600 font-semibold">
-          {plan.id === "price_1MTVUMECO2rmK7GAbuNqVgTe"
-            ? "Premium"
-            : plan.id === "price_1MTVUMECO2rmK7GAyNZvWXIF"
-            ? "Standard"
-            : "Basic"}
-        </span>
-        <h4 className="font-bold my-3">This Service Includes</h4>
-        <ul>
-          <li>- lorem ipsum,lorem ipsum</li>
-          <li>- lorem ipsum,lorem ipsum</li>
-          <li>- lorem ipsum,lorem ipsum</li>
-          <li>- lorem ipsum,lorem ipsum</li>
-          <li>- lorem ipsum,lorem ipsum</li>
-          <li>- lorem ipsum,lorem ipsum</li>
-          <li>- lorem ipsum,lorem ipsum</li>
-        </ul>
+        <span className="text-emerald-600 font-semibold">{plan.nickname}</span>
+        {!inDialog && (
+          <>
+            <h4 className="font-bold my-3">This Service Includes</h4>
+            <ul>
+              <li>- lorem ipsum,lorem ipsum</li>
+              <li>- lorem ipsum,lorem ipsum</li>
+              <li>- lorem ipsum,lorem ipsum</li>
+              <li>- lorem ipsum,lorem ipsum</li>
+              <li>- lorem ipsum,lorem ipsum</li>
+              <li>- lorem ipsum,lorem ipsum</li>
+              <li>- lorem ipsum,lorem ipsum</li>
+            </ul>
+          </>
+        )}
+
         <Button
           className="mt-5 w-full block"
           block
           loading={isLoading}
           variant="solid"
           onClick={() => handlePlan(plan.id)}
+          disabled={selected}
         >
-          {isLoading ? "Redirecting..." : "Get Started"}
+          {isLoading
+            ? "Redirecting..."
+            : selected
+            ? "Current Plan"
+            : "Get Started"}
         </Button>
       </Card>
     </div>
