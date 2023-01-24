@@ -132,7 +132,9 @@ function useAuth() {
   const handleSignOut = () => {
     dispatch(onSignOutSuccess());
     dispatch(setUser(initialState));
-    navigate(appConfig.unAuthenticatedEntryPath);
+    setTimeout(() => {
+      navigate(appConfig.unAuthenticatedEntryPath);
+    }, 500);
   };
 
   const forgotPasswordHandler = async (values) => {

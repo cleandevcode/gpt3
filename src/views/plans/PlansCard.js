@@ -10,11 +10,9 @@ const PlansCard = ({
   plan,
   selected,
   inDialog,
-  iconImg = "",
+  iconImg = null,
   title = "",
   description = "",
-  planName = "Standard",
-  price = 0,
 }) => {
   const token = useSelector((state) => state?.auth?.session?.token);
   const userEmail = useSelector((state) => state?.auth?.user?.email);
@@ -61,11 +59,13 @@ const PlansCard = ({
           )}
         </h1>
         <div className="my-1">
-          <h3 className="text-2xl font-bold mx-auto block">${price} </h3>{" "}
+          <h3 className="text-2xl font-bold mx-auto block">
+            ${plan.unit_amount / 100}{" "}
+          </h3>{" "}
           <small>per month!</small>
         </div>
 
-        <span className="text-emerald-600 font-semibold">{planName}</span>
+        <span className="text-emerald-600 font-semibold">{plan?.nickname}</span>
         {!inDialog && (
           <>
             <h4 className="font-bold my-3">{title}</h4>
