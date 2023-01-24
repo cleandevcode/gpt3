@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { HiOutlineCreditCard } from "react-icons/hi";
 import withHeaderItem from "utils/hoc/withHeaderItem";
-import { Dialog } from "components/ui";
+import { Dialog, Tooltip } from "components/ui";
 import Plans from "views/plans/Plans";
 import useWindowSize from "components/ui/hooks/useWindowSize";
 
@@ -11,12 +11,18 @@ export const SparkPlan = ({ className }) => {
   const { width } = useWindowSize();
   return (
     <>
-      <div
-        className={classNames(className, "text-2xl")}
-        onClick={() => setOpen(true)}
-      >
-        <HiOutlineCreditCard />
-      </div>
+      <Tooltip title="Upgrade Plan" placement="bottom">
+        <div
+          className={classNames(className, "flex items-center")}
+          onClick={() => setOpen(true)}
+        >
+          <div className="text-2xl ">
+            <HiOutlineCreditCard />
+          </div>
+          <span className="ml-1"> Upgrade Now</span>
+        </div>
+      </Tooltip>
+
       <Dialog
         contentClassName="p-0"
         isOpen={open}
