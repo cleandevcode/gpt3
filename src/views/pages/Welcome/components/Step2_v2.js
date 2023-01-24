@@ -18,7 +18,6 @@ const { Control } = components;
 const validationSchema = Yup.object().shape({
   avatar: Yup.string(),
   country: Yup.string().required("Please select your country"),
-  timeZone: Yup.string().required("Please select your Time Zone"),
   industry: Yup.string().required("Please enter your industry"),
   language: Yup.string(),
 });
@@ -30,25 +29,10 @@ const langOptions = [
   { value: "ar", label: "Arabic", imgPath: "/img/countries/ar.png" },
 ];
 
-const createTimeZone = () => {
-  const opt = [];
-  for (let i = 12; i > -15; i--) {
-    const operator = i > 0 ? "+" : "";
-    opt.push({
-      value: `GMT${operator}${i === 0 ? "" : i}`,
-      label: `GMT${operator}${i === 0 ? "" : i}`,
-    });
-  }
-  return opt;
-};
-
-const tzOptions = createTimeZone();
-
 const Step2V2 = ({
   data = {
     avatar: "",
     country: "AF",
-    timeZone: "GMT",
     industry: "Software",
     language: "en",
   },
@@ -200,27 +184,7 @@ const Step2V2 = ({
                       )}
                     </Field>
                   </FormItem>
-                  <FormItem name="timeZone" label="Time Zone">
-                    <Field name="timeZone">
-                      {({ field, form }) => (
-                        <Select
-                          field={field}
-                          form={form}
-                          options={tzOptions}
-                          components={{
-                            Option: CustomSelectOption,
-                            Control: CustomControl,
-                          }}
-                          value={tzOptions.filter(
-                            (option) => option.value === values?.timeZone
-                          )}
-                          onChange={(option) =>
-                            form.setFieldValue(field.name, option.value)
-                          }
-                        />
-                      )}
-                    </Field>
-                  </FormItem>
+
                   <FormItem
                     label="Industry"
                     invalid={errors.industry && touched.industry}

@@ -34,7 +34,6 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email Required"),
   avatar: Yup.string(),
   lang: Yup.string(),
-  timeZone: Yup.string(),
 });
 
 const langOptions = [
@@ -43,20 +42,6 @@ const langOptions = [
   { value: "es", label: "Espanol", imgPath: "/img/countries/sp.png" },
   { value: "ar", label: "Arabic", imgPath: "/img/countries/ar.png" },
 ];
-
-const createTimeZone = () => {
-  const opt = [];
-  for (let i = 12; i > -15; i--) {
-    const operator = i > 0 ? "+" : "";
-    opt.push({
-      value: `GMT${operator}${i === 0 ? "" : i}`,
-      label: `GMT${operator}${i === 0 ? "" : i}`,
-    });
-  }
-  return opt;
-};
-
-const tzOptions = createTimeZone();
 
 const CustomSelectOption = ({ innerProps, label, data, isSelected }) => {
   return (
@@ -222,27 +207,6 @@ const Profile = ({ data }) => {
                       }}
                       value={langOptions.filter(
                         (option) => option.value === values?.lang
-                      )}
-                      onChange={(option) =>
-                        form.setFieldValue(field.name, option.value)
-                      }
-                    />
-                  )}
-                </Field>
-              </FormRow>
-              <FormRow name="timeZone" label="Time Zone" {...validatorProps}>
-                <Field name="timeZone">
-                  {({ field, form }) => (
-                    <Select
-                      field={field}
-                      form={form}
-                      options={tzOptions}
-                      components={{
-                        Option: CustomSelectOption1,
-                        Control: CustomControl1,
-                      }}
-                      value={tzOptions.filter(
-                        (option) => option.value === values?.timeZone
                       )}
                       onChange={(option) =>
                         form.setFieldValue(field.name, option.value)
