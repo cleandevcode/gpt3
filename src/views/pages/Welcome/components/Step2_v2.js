@@ -106,8 +106,8 @@ const Step2V2 = ({
   };
 
   return (
-    <>
-      <div className="mb-8 text-center">
+    <div className="w-full">
+      <div className="text-center">
         <h3 className="mb-2">Personal Information</h3>
         <p>Basic information for an account opening</p>
       </div>
@@ -252,7 +252,7 @@ const Step2V2 = ({
           }}
         </Formik>
       </div>
-    </>
+    </div>
   );
 };
 
