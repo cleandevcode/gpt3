@@ -4,6 +4,25 @@ import { useSelector } from "react-redux";
 import { apiGetPlans } from "services/PlansServies";
 import PlansCard from "./PlansCard";
 
+const dummyData = [
+  {
+    title: "This Service Includes 1",
+    image: null, // it will be image source i.e "/img/countries/ar.png"
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    plan: "Standard",
+    price: 8.88,
+  },
+  {
+    title: "This Service Includes 2",
+    image: null, // it will be image source i.e "/img/countries/ar.png"
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    plan: "Premium",
+    price: 48.88,
+  },
+];
+
 const Plans = ({ inDialog = false }) => {
   const authority = useSelector((state) => state?.auth?.user?.authority);
   const [plans, setPlans] = useState(null);
@@ -23,12 +42,17 @@ const Plans = ({ inDialog = false }) => {
             {!plans ? (
               <Spinner></Spinner>
             ) : (
-              plans?.map((plan) => (
+              plans?.map((plan, idx) => (
                 <PlansCard
                   key={plan.id}
                   plan={plan}
-                  selected={authority.includes(plan?.nickname?.toLowerCase())}
+                  selected={authority?.includes(plan?.nickname?.toLowerCase())}
                   inDialog={inDialog}
+                  title={dummyData[idx].title}
+                  iconImg={dummyData[idx].image}
+                  description={dummyData[idx].description}
+                  planName={dummyData[idx].plan}
+                  price={dummyData[idx].price}
                 ></PlansCard>
               ))
             )}

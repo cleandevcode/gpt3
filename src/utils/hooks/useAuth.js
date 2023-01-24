@@ -46,7 +46,7 @@ function useAuth() {
           });
 
           const userDe = await apiGetUser({ uid: userCredential.user.uid });
-          if (userDe.data.authority.includes("premium")) {
+          if (userDe?.data?.authority?.includes?.("premium")) {
             const redirectUrl = query.get(REDIRECT_URL_KEY);
             navigate(
               redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath
