@@ -38,8 +38,10 @@ const PlansCard = ({
     )
       .then((res) => {
         if (res) {
-          dispatch(setUser(res.data.updatedUser));
           window.location.href = res.data.session.url;
+          setTimeout(() => {
+            dispatch(setUser(res.data.updatedUser));
+          }, 100);
         }
       })
       .catch((err) => {
