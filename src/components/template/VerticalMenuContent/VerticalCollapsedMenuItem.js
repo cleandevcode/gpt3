@@ -1,6 +1,6 @@
 import React from "react";
 import { Menu, Dropdown } from "components/ui";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import VerticalMenuIcon from "./VerticalMenuIcon";
 import { Trans } from "react-i18next";
 import { AuthorityCheck } from "components/shared";
@@ -11,7 +11,6 @@ import { setPlanModalOpen } from "store/base/commonSlice";
 const { MenuItem, MenuCollapse } = Menu;
 
 const DefaultItem = ({ nav, onLinkClick, userAuthority }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
     <AuthorityCheck userAuthority={userAuthority} authority={nav.authority}>
