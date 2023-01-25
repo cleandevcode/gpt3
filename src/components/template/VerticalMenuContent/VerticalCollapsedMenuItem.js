@@ -1,13 +1,18 @@
 import React from "react";
 import { Menu, Dropdown } from "components/ui";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import VerticalMenuIcon from "./VerticalMenuIcon";
 import { Trans } from "react-i18next";
 import { AuthorityCheck } from "components/shared";
+import PlanCheck from "components/shared/PlanCheck";
+import { useDispatch } from "react-redux";
+import { setPlanModalOpen } from "store/base/commonSlice";
 
 const { MenuItem, MenuCollapse } = Menu;
 
 const DefaultItem = ({ nav, onLinkClick, userAuthority }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <AuthorityCheck userAuthority={userAuthority} authority={nav.authority}>
       <MenuCollapse
@@ -44,24 +49,28 @@ const DefaultItem = ({ nav, onLinkClick, userAuthority }) => {
         isPath={nav.path}
       >
         {nav.subMenu.map((subNav) => (
-          <AuthorityCheck
+          <PlanCheck
             userAuthority={userAuthority}
             authority={subNav.authority}
             key={subNav.key}
+            onLinkClick={(premium) => {
+              if (!premium) {
+                dispatch(setPlanModalOpen(true));
+              }
+            }}
           >
             <MenuItem eventKey={subNav.key} disabled={subNav.disabled}>
               {subNav.path ? (
                 <Link
                   className="h-full w-full flex items-center"
-                  onClick={() =>
-                    onLinkClick?.({
-                      key: subNav.key,
-                      title: subNav.title,
-                      path: subNav.path,
-                    })
-                  }
-                  to={subNav.path}
                   style={{ pointerEvents: subNav.disabled ? "none" : "auto" }}
+                  to={
+                    subNav.authority?.some((role) =>
+                      userAuthority.includes(role)
+                    )
+                      ? subNav.path
+                      : "#"
+                  }
                 >
                   <span>
                     <Trans
@@ -79,7 +88,7 @@ const DefaultItem = ({ nav, onLinkClick, userAuthority }) => {
                 </span>
               )}
             </MenuItem>
-          </AuthorityCheck>
+          </PlanCheck>
         ))}
       </MenuCollapse>
     </AuthorityCheck>

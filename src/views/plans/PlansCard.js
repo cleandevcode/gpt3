@@ -14,6 +14,7 @@ const PlansCard = ({
   iconImg = null,
   title = "",
   description = [],
+  onCloseModal = undefined,
 }) => {
   const navigate = useNavigate();
   const token = useSelector((state) => state?.auth?.session?.token);
@@ -44,13 +45,10 @@ const PlansCard = ({
           dispatch(setUser(res.data.updatedUser));
           console.log(res.data);
           // test remove
-          const redirectUrl = res.data.updatedUser.authority?.includes(
-            "premium"
-          )
-            ? `/app/crm/dashboard`
-            : `/plans`;
+
           setTimeout(() => {
-            navigate(redirectUrl);
+            navigate(`/app/crm/dashboard`);
+            onCloseModal?.();
           }, 500);
         }
       })
@@ -88,7 +86,9 @@ const PlansCard = ({
           <small>per month!</small>
         </div>
 
-        <span className="text-emerald-600 font-semibold">{plan?.nickname}</span>
+        <span className="text-emerald-600 font-semibold">
+          {plan?.nickname === `Standard` ? "Starter Plan" : "Premium Plan"}
+        </span>
         {!inDialog && (
           <>
             <h4 className="font-bold my-3">{title}</h4>

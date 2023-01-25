@@ -20,6 +20,8 @@ import planNavigation from "configs/navigation.config/plansNavigation";
 import useAuthContext from "utils/hooks/useAuthContext";
 import { useLocation, Link } from "react-router-dom";
 
+const plans = ["standard", "premium"];
+
 const sideNavStyle = {
   width: SIDE_NAV_WIDTH,
   minWidth: SIDE_NAV_WIDTH,
@@ -74,8 +76,7 @@ const SideNav = () => {
     return navMode;
   };
 
-  const isAuthorized = userAuthority?.includes("premium");
-
+  const isAuthorized = userAuthority?.includes("user");
   const menuContent = !isLoading ? (
     <VerticalMenuContent
       navMode={navMode}

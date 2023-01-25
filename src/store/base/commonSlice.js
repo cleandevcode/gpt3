@@ -1,19 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
-    currentRouteKey: '',
-}
+  currentRouteKey: "",
+  planModalOpen: false,
+};
 
 export const commonSlice = createSlice({
-	name: 'base/common',
-	initialState,
-	reducers: {
-        setCurrentRouteKey: (state, action) => {
-            state.currentRouteKey = action.payload
-        }
-	},
-})
+  name: "base/common",
+  initialState,
+  reducers: {
+    setCurrentRouteKey: (state, action) => {
+      state.currentRouteKey = action.payload;
+    },
+    setPlanModalOpen: (state, action) => {
+      state.planModalOpen = action.payload;
+    },
+  },
+});
 
-export const { setCurrentRouteKey } = commonSlice.actions
+export const { setCurrentRouteKey, setPlanModalOpen } = commonSlice.actions;
 
-export default commonSlice.reducer
+export default commonSlice.reducer;

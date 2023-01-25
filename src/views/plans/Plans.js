@@ -29,7 +29,7 @@ const dummyData = [
   },
 ];
 
-const Plans = ({ inDialog = false }) => {
+const Plans = ({ inDialog = false, onCloseModal = undefined }) => {
   const [plans, setPlans] = useState(null);
 
   useEffect(() => {
@@ -47,18 +47,17 @@ const Plans = ({ inDialog = false }) => {
             {!plans ? (
               <Spinner></Spinner>
             ) : (
-              plans
-                ?.reverse()
-                ?.map((plan, idx) => (
-                  <PlansCard
-                    key={plan.id}
-                    plan={plan}
-                    inDialog={inDialog}
-                    title={dummyData[idx].title}
-                    iconImg={dummyData[idx].image}
-                    description={dummyData[idx].description}
-                  ></PlansCard>
-                ))
+              plans?.map((plan, idx) => (
+                <PlansCard
+                  key={plan.id}
+                  plan={plan}
+                  inDialog={inDialog}
+                  title={dummyData[idx].title}
+                  iconImg={dummyData[idx].image}
+                  description={dummyData[idx].description}
+                  onCloseModal={() => onCloseModal?.()}
+                ></PlansCard>
+              ))
             )}
           </div>
         </div>

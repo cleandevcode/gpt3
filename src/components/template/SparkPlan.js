@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { HiOutlineCreditCard } from "react-icons/hi";
 import withHeaderItem from "utils/hoc/withHeaderItem";
 import { Dialog, Tooltip } from "components/ui";
 import Plans from "views/plans/Plans";
 import useWindowSize from "components/ui/hooks/useWindowSize";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setPlanModalOpen } from "store/base/commonSlice";
 
 export const SparkPlan = ({ className }) => {
+  const dispatch = useDispatch();
   const userAuthority = useSelector((state) => state?.auth?.user?.authority);
-
+  const isModalOpen = useSelector(
+    (state) => state?.base?.common?.planModalOpen
+  );
   const [open, setOpen] = useState(false);
   const { width } = useWindowSize();
 
-  if (userAuthority?.includes("premium"))
+  useEffect(() => {
+    if (isModalOpen) setOpen(true);
+    else setOpen(false);
+  }, [isModalOpen]);
+
+  if (userAuthority?.includes("user"))
     return (
       <>
         <Tooltip title="Upgrade Plan" placement="bottom">
@@ -32,12 +41,21 @@ export const SparkPlan = ({ className }) => {
           contentClassName="p-0"
           isOpen={open}
           closable={false}
-          onRequestClose={() => setOpen(false)}
+          onRequestClose={() => {
+            setOpen(false);
+            dispatch(setPlanModalOpen(false));
+          }}
           width={width > 768 ? 1000 : "unset"}
         >
           <div className="p-2">
             <div className="py-6 px-5 max-h-[650px] overflow-y-auto ">
-              <Plans inDialog={width < 768} />
+              <Plans
+                inDialog={width < 768}
+                onCloseModal={() => {
+                  setOpen(false);
+                  dispatch(setPlanModalOpen(false));
+                }}
+              />
             </div>
           </div>
         </Dialog>

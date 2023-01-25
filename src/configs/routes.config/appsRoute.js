@@ -14,52 +14,52 @@ import {
   SUPPORT_RESOURCES_PREFIX_PATH,
   TEAM_PREFIX_PATH,
 } from "constants/route.constant";
-import { ADMIN, BASIC, PREMIUM, USER } from "constants/roles.constant";
+import { ADMIN, STANDARD, PREMIUM, USER } from "constants/roles.constant";
 
 const appsRoute = [
   {
     key: "services.socialMedia",
     path: `/services/:categoryIdx`,
     component: React.lazy(() => import("views/project/ProjectList")),
-    authority: [BASIC, PREMIUM],
+    authority: [STANDARD, PREMIUM],
     // test remove
   },
   {
     path: `/services/:catId/:id`,
     component: React.lazy(() => import("views/knowledge-base/EditArticle")),
-    authority: [BASIC, PREMIUM],
+    authority: [STANDARD, PREMIUM],
   },
   {
     path: `/dashboard/map_of_users`,
     component: React.lazy(() => import("views/dashboard/map_of_users")),
-    authority: [USER, BASIC, PREMIUM],
+    authority: [USER, STANDARD, PREMIUM],
   },
   {
     path: `/dashboard/user_statistics`,
     component: React.lazy(() => import("views/dashboard/user_statistics")),
-    authority: [USER, BASIC, PREMIUM],
+    authority: [USER, STANDARD, PREMIUM],
   },
   {
     path: `/dashboard/reminders`,
     component: React.lazy(() => import("views/dashboard/reminders")),
-    authority: [USER, BASIC, PREMIUM],
+    authority: [USER, STANDARD, PREMIUM],
   },
   {
     path: `/coming_soon`,
     component: React.lazy(() => import("views/coming_soon")),
-    authority: [USER, BASIC, PREMIUM],
+    authority: [USER, STANDARD, PREMIUM],
   },
   {
     key: "appsCrm.dashboard",
     path: `${APP_PREFIX_PATH}/crm/dashboard`,
     component: React.lazy(() => import("views/crm/CrmDashboard")),
-    authority: [BASIC, PREMIUM],
+    authority: [STANDARD, PREMIUM],
   },
   {
     key: "apps.welcome",
     path: `${APP_PREFIX_PATH}/welcome-page`,
     component: React.lazy(() => import("views/pages/Welcome")),
-    authority: [USER, BASIC, PREMIUM],
+    authority: [USER, STANDARD, PREMIUM],
   },
   ////////////////////////////////////////////////////
 

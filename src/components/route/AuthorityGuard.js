@@ -1,16 +1,20 @@
-import { Spinner } from 'components/ui'
-import React from 'react'
-import { Navigate } from 'react-router-dom'
-import useAuthContext from 'utils/hooks/useAuthContext'
-import useAuthority from 'utils/hooks/useAuthority'
+import { Spinner } from "components/ui";
+import React from "react";
+import { Navigate } from "react-router-dom";
+import useAuthContext from "utils/hooks/useAuthContext";
+import useAuthority from "utils/hooks/useAuthority";
 
-const AuthorityGuard = props => {
+const AuthorityGuard = (props) => {
+  const { userAuthority = [], authority = [], children } = props;
+  const { isLoading } = useAuthContext;
+  const roleMatched = useAuthority(userAuthority, authority);
+  return isLoading ? (
+    <Spinner></Spinner>
+  ) : roleMatched ? (
+    children
+  ) : (
+    <Navigate to="/access-denied" />
+  );
+};
 
-	const { userAuthority = [], authority = [], children } = props
-	const { isLoading } = useAuthContext;
-	const roleMatched = useAuthority(userAuthority, authority)
-
-	return isLoading ? <Spinner></Spinner> : roleMatched ? children : <Navigate to="/access-denied" />
-}
-
-export default AuthorityGuard
+export default AuthorityGuard;
