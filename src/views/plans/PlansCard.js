@@ -44,10 +44,14 @@ const PlansCard = ({
           dispatch(setUser(res.data.updatedUser));
           console.log(res.data);
           // test remove
-          const redirectUrl = updatedUser.authority?.includes("premium")
+          const redirectUrl = res.data.updatedUser.authority?.includes(
+            "premium"
+          )
             ? `/app/crm/dashboard`
             : `/plans`;
-          navigate(redirectUrl);
+          setTimeout(() => {
+            navigate(redirectUrl);
+          }, 500);
         }
       })
       .catch((err) => {
