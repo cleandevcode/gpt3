@@ -34,7 +34,7 @@ export async function apiGetUser(headers) {
 
 export async function updateProfile(payload, _id) {
   return ApiService.fetchData({
-    url: `${process.env.REACT_APP_BASE_API_URL}/update-user/${_id}`,
+    url: `${process.env.REACT_APP_BASE_API_URL}/user/update-user/${_id}`,
     method: "put",
     payload,
   });
