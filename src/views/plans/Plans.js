@@ -8,14 +8,24 @@ const dummyData = [
   {
     title: "This Service Includes 1",
     image: null, // it will be image source i.e "/img/countries/ar.png"
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    description: [
+      "Lorem Ipsum is simply dummy text of the 1",
+      "Lorem Ipsum is simply dummy text of the 2",
+      "Lorem Ipsum is simply dummy text of the 3",
+      "Lorem Ipsum is simply dummy text of the 4",
+      "Lorem Ipsum is simply dummy text of the 5",
+    ],
   },
   {
     title: "This Service Includes 2",
     image: null, // it will be image source i.e "/img/countries/ar.png"
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    description: [
+      "Lorem Ipsum is simply dummy text of the 1",
+      "Lorem Ipsum is simply dummy text of the 2",
+      "Lorem Ipsum is simply dummy text of the 3",
+      "Lorem Ipsum is simply dummy text of the 4",
+      "Lorem Ipsum is simply dummy text of the 5",
+    ],
   },
 ];
 
@@ -38,17 +48,21 @@ const Plans = ({ inDialog = false }) => {
             {!plans ? (
               <Spinner></Spinner>
             ) : (
-              plans?.map((plan, idx) => (
-                <PlansCard
-                  key={plan.id}
-                  plan={plan}
-                  selected={authority?.includes(plan?.nickname?.toLowerCase())}
-                  inDialog={inDialog}
-                  title={dummyData[idx].title}
-                  iconImg={dummyData[idx].image}
-                  description={dummyData[idx].description}
-                ></PlansCard>
-              ))
+              plans
+                ?.reverse()
+                ?.map((plan, idx) => (
+                  <PlansCard
+                    key={plan.id}
+                    plan={plan}
+                    selected={authority?.includes(
+                      plan?.nickname?.toLowerCase()
+                    )}
+                    inDialog={inDialog}
+                    title={dummyData[idx].title}
+                    iconImg={dummyData[idx].image}
+                    description={dummyData[idx].description}
+                  ></PlansCard>
+                ))
             )}
           </div>
         </div>

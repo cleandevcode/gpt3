@@ -18,7 +18,7 @@ import useResponsive from "utils/hooks/useResponsive";
 import { useSelector } from "react-redux";
 import planNavigation from "configs/navigation.config/plansNavigation";
 import useAuthContext from "utils/hooks/useAuthContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const sideNavStyle = {
   width: SIDE_NAV_WIDTH,
@@ -74,13 +74,13 @@ const SideNav = () => {
     return navMode;
   };
 
+  const isAuthorized = userAuthority?.includes("premium");
+
   const menuContent = !isLoading ? (
     <VerticalMenuContent
       navMode={navMode}
       collapsed={sideNavCollapse}
-      navigationTree={
-        userAuthority?.includes("premium") ? navigationConfig : planNavigation
-      }
+      navigationTree={isAuthorized ? navigationConfig : planNavigation}
       routeKey={currentRouteKey}
       userAuthority={userAuthority}
       direction={direction}
@@ -104,11 +104,15 @@ const SideNav = () => {
           )}
         >
           <div className="side-nav-header">
-            <Logo
-              mode={logoMode()}
-              type={sideNavCollapse ? "streamline" : "full"}
-              gutter={sideNavCollapse ? SIDE_NAV_CONTENT_GUTTER : LOGO_X_GUTTER}
-            />
+            <Link to={isAuthorized && `/app/crm/dashboard`}>
+              <Logo
+                mode={logoMode()}
+                type={sideNavCollapse ? "streamline" : "full"}
+                gutter={
+                  sideNavCollapse ? SIDE_NAV_CONTENT_GUTTER : LOGO_X_GUTTER
+                }
+              />
+            </Link>
           </div>
           {sideNavCollapse ? (
             menuContent

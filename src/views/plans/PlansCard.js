@@ -5,6 +5,7 @@ import { FcApproval } from "react-icons/fc";
 import { apiPlanSubscription } from "services/PlansServies";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "store/auth/userSlice";
+import "./PlanCard.css";
 
 const PlansCard = ({
   plan,
@@ -12,7 +13,7 @@ const PlansCard = ({
   inDialog,
   iconImg = null,
   title = "",
-  description = "",
+  description = [],
 }) => {
   const token = useSelector((state) => state?.auth?.session?.token);
   const userEmail = useSelector((state) => state?.auth?.user?.email);
@@ -69,7 +70,14 @@ const PlansCard = ({
         {!inDialog && (
           <>
             <h4 className="font-bold my-3">{title}</h4>
-            <p>{description}</p>
+            <ul className="dash">
+              {description.length > 0 &&
+                description.map((d, idx) => (
+                  <li key={idx}>
+                    <span>{d}</span>
+                  </li>
+                ))}
+            </ul>
           </>
         )}
 
