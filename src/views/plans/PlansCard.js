@@ -42,7 +42,7 @@ const PlansCard = ({
           dispatch(setUser(res.data.updatedUser));
           console.log(res.data);
           // test remove
-          window.location.href = res.data.session.url;
+          window.location.href = res.data.session.success_url;
         }
       })
       .catch((err) => {
