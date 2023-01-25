@@ -30,7 +30,6 @@ const dummyData = [
 ];
 
 const Plans = ({ inDialog = false }) => {
-  const authority = useSelector((state) => state?.auth?.user?.authority);
   const [plans, setPlans] = useState(null);
 
   useEffect(() => {
@@ -54,9 +53,6 @@ const Plans = ({ inDialog = false }) => {
                   <PlansCard
                     key={plan.id}
                     plan={plan}
-                    selected={authority?.includes(
-                      plan?.nickname?.toLowerCase()
-                    )}
                     inDialog={inDialog}
                     title={dummyData[idx].title}
                     iconImg={dummyData[idx].image}

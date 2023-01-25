@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Card, Button, toast, Notification } from "components/ui";
 import { IconText } from "components/shared";
 import { FcApproval } from "react-icons/fc";
@@ -9,7 +9,6 @@ import "./PlanCard.css";
 
 const PlansCard = ({
   plan,
-  selected,
   inDialog,
   iconImg = null,
   title = "",
@@ -17,15 +16,22 @@ const PlansCard = ({
 }) => {
   const token = useSelector((state) => state?.auth?.session?.token);
   const userEmail = useSelector((state) => state?.auth?.user?.email);
+  const authority = useSelector((state) => state?.auth?.user?.authority);
+
   const [isLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const handlePlan = (priceId) => {
+  const selected = useMemo(() => {
+    return authority?.includes(plan?.nickname?.toLowerCase());
+  }, [authority]);
+
+  const handlePlan = (priceId, planName) => {
     setLoading(true);
     apiPlanSubscription(
       {
         email: userEmail,
         priceId,
+        planName,
       },
       { authorization: `Bearer ${token}` }
     )
@@ -93,7 +99,7 @@ const PlansCard = ({
           block
           loading={isLoading}
           variant="solid"
-          onClick={() => handlePlan(plan.id)}
+          onClick={() => handlePlan(plan.id, plan.nickname.toLowerCase())}
           disabled={selected}
         >
           {isLoading
