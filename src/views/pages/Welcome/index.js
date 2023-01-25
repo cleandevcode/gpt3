@@ -83,6 +83,7 @@ const Welcome = () => {
         </Notification>
       );
       navigate(`/app/crm/dashboard`);
+      localStorage.removeItem("new");
     }, 3000);
   }, [creatingProfileData, email, userName, uid]);
 

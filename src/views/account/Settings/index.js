@@ -4,6 +4,7 @@ import { AdaptableCard, Container } from "components/shared";
 import { useNavigate, useLocation } from "react-router-dom";
 import isEmpty from "lodash/isEmpty";
 import { apiGetAccountSettingData } from "services/AccountServices";
+import { useSelector } from "react-redux";
 
 const Profile = lazy(() => import("./components/Profile"));
 const Password = lazy(() => import("./components/Password"));
@@ -24,6 +25,10 @@ const settingsMenu = {
 };
 
 const Settings = () => {
+  const profileData = useSelector((state) => {
+    return state?.auth?.user;
+  });
+
   const [currentTab, setCurrentTab] = useState("profile");
   const [data, setData] = useState({});
 
@@ -67,7 +72,7 @@ const Settings = () => {
         </Tabs>
         <div className="px-4 py-6">
           <Suspense fallback={<></>}>
-            {currentTab === "profile" && <Profile data={data.profile} />}
+            {currentTab === "profile" && <Profile data={profileData} />}
             {currentTab === "password" && <Password data={data.loginHistory} />}
             {currentTab === "notification" && (
               <NotificationSetting data={data.notification} />

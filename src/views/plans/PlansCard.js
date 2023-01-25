@@ -6,7 +6,6 @@ import { apiPlanSubscription } from "services/PlansServies";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "store/auth/userSlice";
 import "./PlanCard.css";
-import { useNavigate } from "react-router-dom";
 
 const PlansCard = ({
   plan,
@@ -16,7 +15,6 @@ const PlansCard = ({
   description = [],
   onCloseModal = undefined,
 }) => {
-  const navigate = useNavigate();
   const token = useSelector((state) => state?.auth?.session?.token);
   const userEmail = useSelector((state) => state?.auth?.user?.email);
   const authority = useSelector((state) => state?.auth?.user?.authority);
@@ -40,19 +38,8 @@ const PlansCard = ({
     )
       .then((res) => {
         if (res) {
-          setLoading(false);
-          console.log(res.data);
-          // TODO: Should work with API for checking if new or not
-          const isNew = localStorage.getItem("new");
-          const redirectUrl = isNew
-            ? `/app/welcome-page`
-            : `/app/crm/dashboard`;
-          setTimeout(() => {
-            navigate(redirectUrl);
-            onCloseModal?.();
-            localStorage.removeItem("new");
-            dispatch(setUser(res.data.updatedUser));
-          }, 500);
+          dispatch(setUser(res.data.updatedUser));
+          window.location.href = res.data.session.url;
         }
       })
       .catch((err) => {

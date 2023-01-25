@@ -5,7 +5,6 @@ import {
   Upload,
   Button,
   Select,
-  Switcher,
   Notification,
   toast,
   FormContainer,
@@ -17,17 +16,17 @@ import { components } from "react-select";
 import {
   HiOutlineUserCircle,
   HiOutlineMail,
-  HiOutlineBriefcase,
   HiOutlineUser,
   HiCheck,
   HiOutlineGlobeAlt,
 } from "react-icons/hi";
 import * as Yup from "yup";
+import { updateProfile } from "services/PlansServies";
 
 const { Control } = components;
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string()
+  userName: Yup.string()
     .min(3, "Too Short!")
     .max(12, "Too Long!")
     .required("User Name Required"),
@@ -62,25 +61,6 @@ const CustomSelectOption = ({ innerProps, label, data, isSelected }) => {
   );
 };
 
-const CustomSelectOption1 = ({ innerProps, label, data, isSelected }) => {
-  return (
-    <div
-      className={`flex items-center justify-between p-2 ${
-        isSelected
-          ? "bg-gray-100 dark:bg-gray-500"
-          : "hover:bg-gray-50 dark:hover:bg-gray-600"
-      }`}
-      {...innerProps}
-    >
-      <div className="flex items-center">
-        <HiOutlineGlobeAlt className="text-xl" />
-        <span className="ml-2 rtl:mr-2">{label}</span>
-      </div>
-      {isSelected && <HiCheck className="text-emerald-500 text-xl" />}
-    </div>
-  );
-};
-
 const CustomControl = ({ children, ...props }) => {
   const selected = props.getValue()[0];
   return (
@@ -98,16 +78,6 @@ const CustomControl = ({ children, ...props }) => {
   );
 };
 
-const CustomControl1 = ({ children, ...props }) => {
-  const selected = props.getValue()[0];
-  return (
-    <Control {...props}>
-      {selected && <HiOutlineGlobeAlt className="text-xl ml-3" />}
-      {children}
-    </Control>
-  );
-};
-
 const Profile = ({ data }) => {
   const onSetFormFile = (form, field, file) => {
     form.setFieldValue(field.name, URL.createObjectURL(file[0]));
@@ -115,9 +85,23 @@ const Profile = ({ data }) => {
 
   const onFormSubmit = (values, setSubmitting) => {
     console.log({ values });
-    toast.push(<Notification title={"Profile updated"} type="success" />, {
-      placement: "top-center",
-    });
+    if (!data) return;
+    setSubmitting(true);
+    updateProfile(values, data?._id)
+      .then((res) => {
+        if (res) {
+          console.log({ res });
+          toast.push(
+            <Notification title={"Profile updated"} type="success" />,
+            {
+              placement: "top-center",
+            }
+          );
+        }
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setSubmitting(false));
+
     setSubmitting(false);
   };
 
@@ -127,10 +111,7 @@ const Profile = ({ data }) => {
       enableReinitialize
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
-        setSubmitting(true);
-        setTimeout(() => {
-          onFormSubmit(values, setSubmitting);
-        }, 1000);
+        onFormSubmit(values, setSubmitting);
       }}
     >
       {({ values, touched, errors, isSubmitting, resetForm }) => {
@@ -142,11 +123,11 @@ const Profile = ({ data }) => {
                 title="General"
                 desc="Basic info, like your name and address that will displayed in public"
               />
-              <FormRow name="name" label="Name" {...validatorProps}>
+              <FormRow name="userName" label="Name" {...validatorProps}>
                 <Field
                   type="text"
                   autoComplete="off"
-                  name="name"
+                  name="userName"
                   placeholder="Name"
                   component={Input}
                   prefix={<HiOutlineUserCircle className="text-xl" />}
