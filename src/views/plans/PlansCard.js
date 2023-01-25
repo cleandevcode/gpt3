@@ -14,6 +14,8 @@ const PlansCard = ({
   title = "",
   description = [],
   onCloseModal = undefined,
+  content,
+  style,
 }) => {
   const token = useSelector((state) => state?.auth?.session?.token);
   const userEmail = useSelector((state) => state?.auth?.user?.email);
@@ -39,9 +41,7 @@ const PlansCard = ({
       .then((res) => {
         if (res) {
           window.location.href = res.data.session.url;
-          setTimeout(() => {
-            dispatch(setUser(res.data.updatedUser));
-          }, 100);
+          dispatch(setUser(res.data.updatedUser));
         }
       })
       .catch((err) => {
@@ -56,52 +56,40 @@ const PlansCard = ({
     <div className={`w-full  text-center`}>
       <Card
         // clickable
-        className="hover:shadow-lg transition duration-150 ease-in-out dark:border dark:border-gray-600 dark:border-solid"
+        className={`hover:shadow-lg transition duration-150 ease-in-out dark:border dark:border-gray-600 dark:border-solid ${style.background} h-full`}
         headerClass="p-0"
         footerBorder={false}
         headerBorder={false}
+        bodyClass="flex flex-col justify-between h-full"
       >
-        <h1 className="my-5">
-          {!iconImg ? (
-            <IconText
-              className="text-emerald-500 	"
-              icon={<FcApproval className="mx-auto block" />}
-            ></IconText>
-          ) : (
-            <img style={{ width: 50, height: 50 }} src={iconImg} />
-          )}
+        <h1 className="my-5" style={{ color: style.color }}>
+          ${plan.unit_amount / 100}
         </h1>
-        <div className="my-1">
-          <h3 className="text-2xl font-bold mx-auto block">
-            ${plan.unit_amount / 100}{" "}
-          </h3>{" "}
-          <small>per month!</small>
-        </div>
 
-        <span className="text-emerald-600 font-semibold">
-          {plan?.nickname.toLowerCase() === `standard`
-            ? "Starter Plan"
-            : "Premium Plan"}
-        </span>
-        {!inDialog && (
-          <>
-            <h4 className="font-bold my-3">{title}</h4>
-            <ul className="dash">
-              {description.length > 0 &&
-                description.map((d, idx) => (
-                  <li key={idx}>
-                    <span>{d}</span>
-                  </li>
-                ))}
-            </ul>
-          </>
+        <h3 className="font-bold my-3" style={{ color: style.color }}>
+          {title}
+        </h3>
+        <p
+          style={{ color: style.color }}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+
+        {!iconImg ? (
+          <IconText
+            className="text-emerald-500 	"
+            icon={<FcApproval className="mx-auto block" />}
+          ></IconText>
+        ) : (
+          <div className="flex items-center justify-center py-6">
+            <img style={{ maxWidth: "100%", height: "auto" }} src={iconImg} />
+          </div>
         )}
 
         <Button
           className="mt-5 w-full block"
           block
           loading={isLoading}
-          variant="solid"
+          variant={style.buttonVarient}
           onClick={() => handlePlan(plan.id, plan.nickname.toLowerCase())}
           disabled={selected}
         >
@@ -109,7 +97,7 @@ const PlansCard = ({
             ? "Redirecting..."
             : selected
             ? "Current Plan"
-            : "Get Started"}
+            : "Free Trial"}
         </Button>
       </Card>
     </div>

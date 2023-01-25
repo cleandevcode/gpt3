@@ -5,26 +5,27 @@ import PlansCard from "./PlansCard";
 
 const dummyData = [
   {
-    title: "This Service Includes 1",
-    image: null, // it will be image source i.e "/img/countries/ar.png"
-    description: [
-      "Lorem Ipsum is simply dummy text of the 1",
-      "Lorem Ipsum is simply dummy text of the 2",
-      "Lorem Ipsum is simply dummy text of the 3",
-      "Lorem Ipsum is simply dummy text of the 4",
-      "Lorem Ipsum is simply dummy text of the 5",
-    ],
+    title: "Starter Plan",
+    image: "/img/products/P1.png",
+    description: [],
+    content: "37 Ai Tools For <br /> Your Social Media Needs",
+    style: {
+      background: `bg-indigo-600`,
+      color: `white`,
+      buttonVarient: `twoTone`,
+    },
   },
   {
-    title: "This Service Includes 2",
-    image: null, // it will be image source i.e "/img/countries/ar.png"
-    description: [
-      "Lorem Ipsum is simply dummy text of the 1",
-      "Lorem Ipsum is simply dummy text of the 2",
-      "Lorem Ipsum is simply dummy text of the 3",
-      "Lorem Ipsum is simply dummy text of the 4",
-      "Lorem Ipsum is simply dummy text of the 5",
-    ],
+    title: "Premium Plan",
+    image: "/img/products/P2.png",
+    description: [],
+    content: `71 Ai Tools To Help You Take Your Online <br /> Presence To New Height`,
+    style: {
+      background: `bg-white`,
+      color: `black`,
+      buttonBG: `bg-indigo-600`,
+      buttonVarient: `solid`,
+    },
   },
 ];
 
@@ -55,6 +56,8 @@ const Plans = ({ inDialog = false, onCloseModal = undefined }) => {
                   iconImg={dummyData[idx].image}
                   description={dummyData[idx].description}
                   onCloseModal={() => onCloseModal?.()}
+                  content={dummyData[idx].content}
+                  style={dummyData[idx].style}
                 ></PlansCard>
               ))
             )}
