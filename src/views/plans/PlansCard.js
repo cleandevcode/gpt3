@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button } from "components/ui";
+import { Card, Button, toast, Notification } from "components/ui";
 import { IconText } from "components/shared";
 import { FcApproval } from "react-icons/fc";
 import { apiPlanSubscription } from "services/PlansServies";
@@ -28,16 +28,23 @@ const PlansCard = ({
         priceId,
       },
       { authorization: `Bearer ${token}` }
-    ).then((res) => {
-      if (res) {
+    )
+      .then((res) => {
+        if (res) {
+          setLoading(false);
+          // test remove
+          dispatch(setUser(res.data.updatedUser));
+          console.log(res.data);
+          // test remove
+          window.location.href = res.data.session.url;
+        }
+      })
+      .catch((err) => {
         setLoading(false);
-        // test remove
-        dispatch(setUser(res.data.updatedUser));
-        console.log(res.data);
-        // test remove
-        window.location.href = res.data.session.url;
-      }
-    });
+        toast.push(<Notification title={err?.message} type="danger" />, {
+          placement: "top-end",
+        });
+      });
   };
 
   return (
