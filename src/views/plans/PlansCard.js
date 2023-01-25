@@ -41,14 +41,17 @@ const PlansCard = ({
       .then((res) => {
         if (res) {
           setLoading(false);
-          // test remove
-          dispatch(setUser(res.data.updatedUser));
           console.log(res.data);
-          // test remove
-
+          // TODO: Should work with API for checking if new or not
+          const isNew = localStorage.getItem("new");
+          const redirectUrl = isNew
+            ? `/app/welcome-page`
+            : `/app/crm/dashboard`;
           setTimeout(() => {
-            navigate(`/app/crm/dashboard`);
+            navigate(redirectUrl);
             onCloseModal?.();
+            localStorage.removeItem("new");
+            dispatch(setUser(res.data.updatedUser));
           }, 500);
         }
       })

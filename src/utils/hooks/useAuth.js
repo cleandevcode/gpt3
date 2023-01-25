@@ -98,6 +98,8 @@ function useAuth() {
           dispatch(setUser(addTodb.data.userDe));
           // console.log(addTodb.data);
           navigate(appConfig.unsubEntryPath);
+          //TODO: Temporary
+          localStorage.setItem("new", true);
         }
       })
       .catch((errors) => {
