@@ -11,15 +11,20 @@ const Side = ({children, content, ...rest }) => {
 				style={{backgroundImage: `url('/img/others/auth-side-bg.jpg')`}}
 			>
 				<Logo mode="dark" />
-				<div >
-					<div className="mb-6 flex items-center gap-4">
+				<div>
+					{/* <div className="mb-6 flex items-center gap-4">
 						<Avatar className="border-2 border-white" shape="circle" src="/img/avatars/thumb-10.jpg" />
 						<div className="text-white">
-							<div className="font-semibold text-base">Brittany Hale</div>
-							<span className="opacity-80">CTO, Onward</span>
+							<div className="font-semibold text-base">Ardalan</div>
+							<span className="opacity-80">CEO, AI Creatives</span>
 						</div>
-					</div>
-					<p className="text-lg text-white opacity-80">Elstar comes with a complete set of UI components crafted with Tailwind CSS, it fulfilled most of the use case to create modern and beautiful UI and application</p>
+					</div> */}
+										<h2 className="text-lg text-white">Join over 20,000+ individuals, real estate professional, digital agencies, and content creators.</h2>
+
+<p>    &nbsp;</p>	
+<p>    &nbsp; </p>
+<p  className="text-lg text-white opacity-80">Become part of our integrated Ai community to scale your business & save time by removing the guesswork with our proven technology, Don’t take our word for it…try it free for 10 days!</p>
+
 				</div>
 				<span className="text-white">Copyright  &copy;  {`${new Date().getFullYear()}`} <span className="font-semibold">{`${APP_NAME}`}</span> </span>
 			</div>

@@ -400,7 +400,7 @@ const Editor = ({}) => {
                 field1: "SHORT DESCRIPTION",
                 field1Short: "What your product or business is about",
                 field1Place:
-                  "e.g onlyAI, AI content writing tool. Easy to use interface",
+                  "e.g Ai Creatives, AI content writing tool. Easy to use interface",
                 field2: "TONE",
                 field2Short: "Tone of voice you want the AI to write. Optional",
                 field2Place: "e.g excited",
@@ -454,7 +454,7 @@ const Editor = ({}) => {
                 field1: "CUSTOMER REVIEW",
                 field1Short: "What the customer wrote",
                 field1Place:
-                  "e.g I've been using OnlyAI for a while now and I'm really happy with it. It's helped me free up a lot of time that I would have otherwise spent on writing content.",
+                  "e.g I've been using Ai Creatives for a while now and I'm really happy with it. It's helped me free up a lot of time that I would have otherwise spent on writing content.",
                 field2: "TONE",
                 field2Short:
                   "Tone of voice you want the AI to write in. Optional",
@@ -763,7 +763,7 @@ const Editor = ({}) => {
               data={{
                 field1: "SHORT DESCRIPTION",
                 field1Short: "Name of your product/service and what it does.",
-                field1Place: "e.g OnlyAI, AI content writing tool.",
+                field1Place: "e.g Ai Creatives, AI content writing tool.",
               }}
               key={id}
               id={id}
@@ -975,7 +975,7 @@ const Editor = ({}) => {
                 field1: "SHORT DESCRIPTION",
                 field1Short:
                   "The Name and description of the product or service, and what it is about.",
-                field1Place: "e.g OnlyAI, AI writing tool",
+                field1Place: "e.g Ai Creatives, AI writing tool",
                 field2: "TONE",
                 field2Short:
                   "Tone of voice your want the AI to write in. optional",
@@ -1202,7 +1202,7 @@ const Editor = ({}) => {
                 field1: "CONTENT",
                 field1Short: "Content to be rewritten.",
                 field1Place:
-                  "e.g OnlyAI is a fast developing AI content writing tool that's giving its competitors a run for their money.",
+                  "e.g Ai Creatives is a fast developing AI content writing tool that's giving its competitors a run for their money.",
               }}
               key={id}
               id={id}
