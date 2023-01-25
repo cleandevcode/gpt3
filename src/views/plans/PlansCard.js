@@ -6,6 +6,7 @@ import { apiPlanSubscription } from "services/PlansServies";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "store/auth/userSlice";
 import "./PlanCard.css";
+import { useNavigate } from "react-router-dom";
 
 const PlansCard = ({
   plan,
@@ -14,6 +15,7 @@ const PlansCard = ({
   title = "",
   description = [],
 }) => {
+  const navigate = useNavigate();
   const token = useSelector((state) => state?.auth?.session?.token);
   const userEmail = useSelector((state) => state?.auth?.user?.email);
   const authority = useSelector((state) => state?.auth?.user?.authority);
@@ -42,7 +44,10 @@ const PlansCard = ({
           dispatch(setUser(res.data.updatedUser));
           console.log(res.data);
           // test remove
-          window.location.href = res.data.session.success_url;
+          const redirectUrl = updatedUser.authority?.includes("premium")
+            ? `/app/crm/dashboard`
+            : `/plans`;
+          navigate(redirectUrl);
         }
       })
       .catch((err) => {
