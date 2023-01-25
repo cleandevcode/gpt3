@@ -77,7 +77,9 @@ const PlansCard = ({
         </div>
 
         <span className="text-emerald-600 font-semibold">
-          {plan?.nickname === `Standard` ? "Starter Plan" : "Premium Plan"}
+          {plan?.nickname.toLowerCase() === `standard`
+            ? "Starter Plan"
+            : "Premium Plan"}
         </span>
         {!inDialog && (
           <>

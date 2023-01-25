@@ -1,4 +1,4 @@
-import React, { useState, useCallback, Suspense, lazy } from "react";
+import React, { useState, useCallback, Suspense, lazy, useEffect } from "react";
 import { Container } from "components/shared";
 
 import { injectReducer } from "store";
@@ -24,10 +24,25 @@ const Welcome = () => {
   const creatingProfileData = useSelector(
     (state) => state.createProfileForm.data.user
   );
+  const authority = useSelector((state) => state?.auth?.user?.authority);
+
   const { email, userName, uid } = useSelector((state) => state?.auth?.user);
 
   const [surveyStep, setSurveyStep] = useState(0);
   const [creating, setCreating] = useState(false);
+
+  useEffect(() => {
+    if (authority && authority?.length > 0) {
+      const isNew = localStorage.getItem("new");
+      const isPlaned =
+        authority.includes("standard") || authority.includes("premium");
+
+      if (isPlaned && !isNew)
+        setTimeout(() => {
+          navigate(`/app/crm/dashboard`);
+        }, 500);
+    }
+  }, [authority]);
 
   const handleNext = useCallback(
     (payload) => {

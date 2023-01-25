@@ -8,6 +8,7 @@ const AuthorityGuard = (props) => {
   const { userAuthority = [], authority = [], children } = props;
   const { isLoading } = useAuthContext;
   const roleMatched = useAuthority(userAuthority, authority);
+
   return isLoading ? (
     <Spinner></Spinner>
   ) : roleMatched ? (

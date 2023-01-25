@@ -1,9 +1,7 @@
 import { Spinner } from "components/ui";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { apiGetPlans } from "services/PlansServies";
 import PlansCard from "./PlansCard";
-import { useNavigate } from "react-router-dom";
 
 const dummyData = [
   {
@@ -32,23 +30,12 @@ const dummyData = [
 
 const Plans = ({ inDialog = false, onCloseModal = undefined }) => {
   const [plans, setPlans] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     apiGetPlans().then((res) => {
       setPlans(res.data.data);
     });
   }, []);
-
-  useEffect(() => {
-    if (!inDialog) {
-      const isNew = localStorage.getItem("new");
-      const redirectUrl = isNew ? `/app/welcome-page` : `/app/crm/dashboard`;
-      setTimeout(() => {
-        navigate(redirectUrl);
-      }, 500);
-    }
-  }, [inDialog]);
 
   return (
     <>
