@@ -2,8 +2,8 @@
   "nav": {
     "menu": "菜单",
     "account": {
-      "root": "您的帐户",
-      "profile": "创建个人资料"
+      "root": "我的账户",
+      "profile": "我的简历"
     },
     "dashboard": {
       "root": "仪表板",
@@ -12,7 +12,7 @@
       "reminder": "提醒/待办事项列表"
     },
     "services": {
-      "root": "服务",
+      "root": "人工智能工具",
       "social_media": "社交媒体工具",
       "marketing": "营销工具",
       "business": "商业工具",

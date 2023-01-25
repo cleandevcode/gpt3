@@ -31,7 +31,7 @@ const appsNavigationConfig = [
       {
         key: "account",
         path: "/app/crm/dashboard",
-        title: "YOUR ACCOUNT",
+        title: "MY ACCOUNT",
         translateKey: "nav.account.root",
         icon: "account",
         type: NAV_ITEM_TYPE_TITLE,

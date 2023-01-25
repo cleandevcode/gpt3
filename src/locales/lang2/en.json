@@ -2,8 +2,8 @@
   "nav": {
     "menu": "Menu",
     "account": {
-      "root": "YOUR ACCOUNT",
-      "profile": "Create Profile"
+      "root": "MY ACCOUNT",
+      "profile": "My Profile"
     },
     "dashboard": {
       "root": "DASHBOARD",
@@ -12,7 +12,7 @@
       "reminder": "Reminders/To-Do List"
     },
     "services": {
-      "root": "SERVICES",
+      "root": "Ai TOOLS",
       "social_media": "Social Media Tools",
       "marketing": "Marketing Tools",
       "business": "Business Tools",

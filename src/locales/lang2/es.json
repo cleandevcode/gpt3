@@ -2,8 +2,8 @@
   "nav": {
     "menu": "Menú",
     "account": {
-      "root": "SU CUENTA",
-      "profile": "Crear perfil"
+      "root": "MI CUENTA",
+      "profile": "Mi perfil"
     },
     "dashboard": {
       "root": "TABLERO",
@@ -12,7 +12,7 @@
       "reminder": "Recordatorios/Lista de tareas pendientes"
     },
     "services": {
-      "root": "SERVICIOS",
+      "root": "HERRAMIENTAS AI",
       "social_media": "Herramientas de redes sociales",
       "marketing": "Herramientas de marketing",
       "business": "Herramientas comerciales",
