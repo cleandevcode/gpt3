@@ -97,7 +97,7 @@ const PlansCard = ({
             ? "Redirecting..."
             : selected
             ? "Current Plan"
-            : "Free Trial"}
+            : "10 Days Free Trial"}
         </Button>
       </Card>
     </div>
