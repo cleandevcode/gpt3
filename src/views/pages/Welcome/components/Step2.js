@@ -42,7 +42,7 @@ const Step2 = ({ onNext, onBack }) => {
               <Form>
                 <FormContainer>
                   <FormItem
-                    label=" Is this for personal use or business use?"
+                    label="Is this for personal use or business use?"
                     invalid={
                       errors.organizationName && touched.organizationName
                     }
@@ -52,7 +52,7 @@ const Step2 = ({ onNext, onBack }) => {
                       type="text"
                       autoComplete="off"
                       name="organizationName"
-                      placeholder="Is this for personal or business use?"
+                      placeholder="Is this for personal use or business use"
                       component={Input}
                     />
                   </FormItem>

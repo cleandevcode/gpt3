@@ -19,6 +19,7 @@ query getBlogDetail($filter: BlogModelFilter) {
       }
     }
     content
+    description
     image {
       url
     }
@@ -37,7 +38,6 @@ const BlogDetail = () => {
       },
     },
   });
-  console.log(data);
 
   return (
     <div className="flex flex-col gap-4 h-full">
@@ -46,12 +46,15 @@ const BlogDetail = () => {
         <p>{data?.blog?.content}</p>
 
         <div>
+          <h3 className="my-5">{data?.blog?.title}</h3>
+          <p className="mb-3">{data?.blog?.content}</p>
+
           <img
             src={data?.blog?.image?.url}
             className="w-full max-h-[500px]"
             style={{ objectFit: "cover" }}
           />
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-3">
             <div className="flex items-center mt-3">
               <Avatar
                 icon={<HiOutlineUser />}
@@ -64,6 +67,7 @@ const BlogDetail = () => {
             </div>
             <span>{moment(data?.blog?.createdat).format("MMM DD, YYYY")}</span>
           </div>
+          <p>{data?.blog?.description}</p>
         </div>
 
         <p dangerouslySetInnerHTML={{ __html: data?.blog?.description }} />
