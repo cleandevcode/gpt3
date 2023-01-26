@@ -81,7 +81,7 @@ const PlansCard = ({
           ></IconText>
         ) : (
           <div className="flex items-center justify-center py-6">
-            <img style={{ maxWidth: "100%", height: "auto" }} src={iconImg} />
+            <img style={{ maxWidth: "100%", height: 150 }} src={iconImg} />
           </div>
         )}
 
@@ -97,7 +97,7 @@ const PlansCard = ({
             ? "Redirecting..."
             : selected
             ? "Current Plan"
-            : "Free Trial"}
+            : "10 Days Free Trial"}
         </Button>
       </Card>
     </div>

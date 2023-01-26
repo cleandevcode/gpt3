@@ -39,7 +39,7 @@ const UserStatistics = () => {
     <div className="flex flex-col gap-4 h-full">
       <h3 className="mb-5">User Statistics</h3>
       <Loading loading={loading}>
-        <ProjectDashboardHeader data={{ userName, taskCount }} />
+        {/* <ProjectDashboardHeader data={{ userName, taskCount }} /> */}
         <div className="flex flex-col xl:flex-row gap-4">
           <div className="flex flex-col gap-4 flex-auto">
             <TaskOverview data={projectOverviewData} />

@@ -162,7 +162,7 @@ const EventDialog = ({submit}) => {
 									</Field>
 								</FormItem>
 								<FormItem
-									label="Prefered"
+									label="Preferred"
 									asterisk={true}
 									invalid={errors.color && touched.color}
 									errorMessage={errors.color}

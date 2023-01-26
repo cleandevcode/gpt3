@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { HiOutlineCreditCard } from "react-icons/hi";
 import withHeaderItem from "utils/hoc/withHeaderItem";
-import { Dialog, Tooltip } from "components/ui";
+import { Dialog } from "components/ui";
 import Plans from "views/plans/Plans";
 import useWindowSize from "components/ui/hooks/useWindowSize";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,17 +25,15 @@ export const SparkPlan = ({ className }) => {
   if (userAuthority?.includes("user"))
     return (
       <>
-        <Tooltip title="Upgrade Plan" placement="bottom">
-          <div
-            className={classNames(className, "flex items-center")}
-            onClick={() => setOpen(true)}
-          >
-            <div className="text-2xl ">
-              <HiOutlineCreditCard />
-            </div>
-            <span className="ml-1"> Upgrade Now</span>
+        <div
+          className={classNames(className, "flex items-center")}
+          onClick={() => setOpen(true)}
+        >
+          <div className="text-2xl ">
+            <HiOutlineCreditCard />
           </div>
-        </Tooltip>
+          <span className="ml-1"> Plan Options </span>
+        </div>
 
         <Dialog
           contentClassName="p-0"
@@ -46,10 +44,10 @@ export const SparkPlan = ({ className }) => {
             dispatch(setPlanModalOpen(false));
           }}
           width={width > 768 ? 1000 : "unset"}
-          height={width > 768 ? "auto" : 620}
+          height={width > 768 ? "auto" : 650}
         >
           <div className="p-2">
-            <div className="py-6 px-5 max-h-[600px] overflow-y-auto ">
+            <div className="py-6 px-5 max-h-[620px] overflow-y-auto ">
               <Plans
                 inDialog={width < 768}
                 onCloseModal={() => {

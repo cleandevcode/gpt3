@@ -37,7 +37,7 @@ const Step4 = ({ onNext, onBack }) => {
 
   return (
     <div className="text-center">
-      <h3 className="mb-2">What is your main objective with Elstar?</h3>
+      <h3 className="mb-2">What is your main objective with Ai Creatives?</h3>
       <div className="mt-8 max-w-[600px] lg:min-w-[600px] mx-auto">
         <Formik
           initialValues={{

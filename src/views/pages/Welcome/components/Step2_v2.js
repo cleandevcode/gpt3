@@ -110,7 +110,7 @@ const Step2V2 = ({
             return (
               <Form>
                 <FormContainer>
-                  <FormItem name="avatar" label="Avatar">
+                  <FormItem name="avatar" label="Add Avatar">
                     <Field name="avatar">
                       {({ field, form }) => {
                         const avatarProps = field.value
@@ -186,7 +186,7 @@ const Step2V2 = ({
                   </FormItem>
 
                   <FormItem
-                    label="Industry"
+                    label="Your Industry"
                     invalid={errors.industry && touched.industry}
                     errorMessage={errors.industry}
                   >
@@ -194,7 +194,7 @@ const Step2V2 = ({
                       type="text"
                       autoComplete="off"
                       name="industry"
-                      placeholder="Industry"
+                      placeholder="Your Industry"
                       component={Input}
                     />
                   </FormItem>

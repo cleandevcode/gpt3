@@ -10,9 +10,10 @@ const dummyData = [
     description: [],
     content: "37 Ai Tools For <br /> Your Social Media Needs",
     style: {
-      background: `bg-indigo-600`,
-      color: `white`,
-      buttonVarient: `twoTone`,
+      background: `bg-white`,
+      color: `black`,
+      buttonBG: `bg-indigo-600`,
+      buttonVarient: `solid`,
     },
   },
   {
