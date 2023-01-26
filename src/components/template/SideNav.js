@@ -56,7 +56,6 @@ const SideNav = () => {
 
   const { larger } = useResponsive();
   const { isLoading } = useAuthContext();
-  console.log(`here loading>>>`, isLoading);
   const sideNavColor = () => {
     if (navMode === NAV_MODE_THEMED) {
       return `bg-${themeColor}-${primaryColorLevel} side-nav-${navMode}`;

@@ -22,7 +22,7 @@ import { apiAddUser, apiGetPlans, apiGetUser } from "services/PlansServies";
 function useAuth() {
   const [authRes, setAuthRes] = useState({});
   const [isLoading, setLoading] = useState(true);
-
+  const [authUser, setAuthUSer] = useState({});
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -41,11 +41,8 @@ function useAuth() {
             message: "",
           });
 
-          getIdToken(userCredential.user).then((token) => {
-            dispatch(onSignInSuccess(token));
-          });
-
           const userDe = await apiGetUser({ uid: userCredential.user.uid });
+          setAuthUSer(userDe.data);
           dispatch(setUser(userDe.data));
           setLoading(false);
           if (
@@ -59,6 +56,10 @@ function useAuth() {
           } else {
             navigate(appConfig.unsubEntryPath);
           }
+
+          getIdToken(userCredential.user).then((token) => {
+            dispatch(onSignInSuccess(token));
+          });
         }
       })
       .catch((error) => {
@@ -181,6 +182,7 @@ function useAuth() {
     authRes,
     isLoading,
     setAuthRes,
+    authUser,
   };
 }
 
