@@ -56,8 +56,10 @@ const Blog = ({ blog }) => {
         navigate(`${SUPPORT_RESOURCES_PREFIX_PATH}/blogs/${slug}`);
       }}
     >
-      <h4 className="font-bold my-1">{title}</h4>
-      <TextEllipsis text={content} maxTextCount={300} />
+      <h4 className="font-bold my-1">
+        <TextEllipsis text={title} maxTextCount={75} />
+      </h4>
+      <TextEllipsis text={content} maxTextCount={200} />
     </Card>
     // </div>
   );
