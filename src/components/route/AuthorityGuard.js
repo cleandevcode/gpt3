@@ -6,7 +6,7 @@ import useAuthority from "utils/hooks/useAuthority";
 
 const AuthorityGuard = (props) => {
   const { userAuthority = [], authority = [], children } = props;
-  const { isLoading } = useAuthContext;
+  const { isLoading } = useAuthContext();
   const roleMatched = useAuthority(userAuthority, authority);
 
   return isLoading ? (

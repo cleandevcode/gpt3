@@ -56,7 +56,6 @@ const SideNav = () => {
 
   const { larger } = useResponsive();
   const { isLoading } = useAuthContext();
-
   const sideNavColor = () => {
     if (navMode === NAV_MODE_THEMED) {
       return `bg-${themeColor}-${primaryColorLevel} side-nav-${navMode}`;
@@ -79,6 +78,7 @@ const SideNav = () => {
   const isAuthorized =
     userAuthority?.includes("user") &&
     (userAuthority?.includes("standard") || userAuthority?.includes("premium"));
+  console.log("authority>>>>>>", userAuthority, isAuthorized);
   const menuContent = !isLoading ? (
     <VerticalMenuContent
       navMode={navMode}
