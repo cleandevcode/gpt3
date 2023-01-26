@@ -40,7 +40,7 @@ const BlogDetail = () => {
   });
 
   return (
-    <div className="flex flex-col gap-4 h-full">
+    <div className="flex flex-col gap-4 h-full ">
       <Loading loading={loading}>
         <h3 className="my-5">{data?.blog?.title}</h3>
         <p>{data?.blog?.content}</p>
