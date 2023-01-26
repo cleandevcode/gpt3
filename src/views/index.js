@@ -25,7 +25,8 @@ const AllRoutes = (props) => {
             <Navigate
               replace
               to={
-                userAuthority?.includes("premium")
+                userAuthority?.includes("premium") ||
+                userAuthority?.includes("standard")
                   ? authenticatedEntryPath
                   : unsubEntryPath
               }
