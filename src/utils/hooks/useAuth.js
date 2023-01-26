@@ -22,7 +22,7 @@ import { apiAddUser, apiGetPlans, apiGetUser } from "services/PlansServies";
 function useAuth() {
   const [authRes, setAuthRes] = useState({});
   const [isLoading, setLoading] = useState(true);
-  const [authUser, setAuthUSer] = useState({});
+
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -40,15 +40,23 @@ function useAuth() {
             status: "success",
             message: "",
           });
+
           getIdToken(userCredential.user).then((token) => {
             dispatch(onSignInSuccess(token));
           });
+
           const userDe = await apiGetUser({ uid: userCredential.user.uid });
-          dispatch(setUser(userDe.data));
-          const redirectUrl = query.get(REDIRECT_URL_KEY);
-          navigate(
-            redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath
-          );
+          if (
+            userDe?.data?.authority?.includes?.("premium") ||
+            userDe?.data?.authority?.includes?.("standard")
+          ) {
+            const redirectUrl = query.get(REDIRECT_URL_KEY);
+            navigate(
+              redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath
+            );
+          } else {
+            navigate(appConfig.unsubEntryPath);
+          }
         }
       })
       .catch((error) => {
@@ -171,7 +179,6 @@ function useAuth() {
     authRes,
     isLoading,
     setAuthRes,
-    authUser,
   };
 }
 
