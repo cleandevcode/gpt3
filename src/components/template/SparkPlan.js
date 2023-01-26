@@ -46,10 +46,10 @@ export const SparkPlan = ({ className }) => {
             dispatch(setPlanModalOpen(false));
           }}
           width={width > 768 ? 1000 : "unset"}
-          height={width > 768 ? "auto" : 850}
+          height={width > 768 ? "auto" : 620}
         >
           <div className="p-2">
-            <div className="py-6 px-5 max-h-[830px] overflow-y-auto ">
+            <div className="py-6 px-5 max-h-[600px] overflow-y-auto ">
               <Plans
                 inDialog={width < 768}
                 onCloseModal={() => {
