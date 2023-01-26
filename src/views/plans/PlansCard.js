@@ -21,6 +21,9 @@ const PlansCard = ({
   const userEmail = useSelector((state) => state?.auth?.user?.email);
   const authority = useSelector((state) => state?.auth?.user?.authority);
 
+  //TODO: should not work with localstorage, maybe Redux?
+  const isNew = localStorage.getItem("new");
+
   const [isLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -97,7 +100,9 @@ const PlansCard = ({
             ? "Redirecting..."
             : selected
             ? "Current Plan"
-            : "10 Days Free Trial"}
+            : isNew
+            ? "10 Days Free Trial"
+            : "Upgrade Plan"}
         </Button>
       </Card>
     </div>

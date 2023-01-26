@@ -44,7 +44,7 @@ const BlogDetail = () => {
       <Loading loading={loading}>
         <div>
           <h3 className="my-5">{data?.blog?.title}</h3>
-          <p className="mb-3">{data?.blog?.content}</p>
+          <p className="mb-3 text-justify">{data?.blog?.content}</p>
 
           <img
             src={data?.blog?.image?.url}
@@ -60,11 +60,11 @@ const BlogDetail = () => {
                 shape="circle"
                 src={data?.blog?.author?.avatar?.url}
               />
-              <p> {data?.blog?.author?.name}</p>
+              <p className="text-justify"> {data?.blog?.author?.name}</p>
             </div>
             <span>{moment(data?.blog?.createdat).format("MMM DD, YYYY")}</span>
           </div>
-          <p>{data?.blog?.description}</p>
+          <p className="text-justify">{data?.blog?.description}</p>
         </div>
       </Loading>
     </div>
