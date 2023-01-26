@@ -46,6 +46,7 @@ function useAuth() {
           });
 
           const userDe = await apiGetUser({ uid: userCredential.user.uid });
+          dispatch(setUser(userDe.data));
           setLoading(false);
           if (
             userDe?.data?.authority?.includes?.("premium") ||
