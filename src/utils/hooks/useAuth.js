@@ -42,7 +42,9 @@ function useAuth() {
           });
 
           getIdToken(userCredential.user).then((token) => {
-            dispatch(onSignInSuccess(token));
+            setTimeout(() => {
+              dispatch(onSignInSuccess(token));
+            }, 1000);
           });
 
           const userDe = await apiGetUser({ uid: userCredential.user.uid });
