@@ -49,7 +49,7 @@ const Plans = ({ inDialog = false, onCloseModal = undefined }) => {
         <h3 className="mb-1 mx-auto ">Plans</h3>
         <div className="mt-5 mx-auto max-w-[800px]">
           <div className="mx-auto content-center grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
-            {/* {loading && <Spinner></Spinner>} */}
+            {loading && <Spinner></Spinner>}
             {!loading &&
               plans?.length > 0 &&
               plans?.map((plan, idx) => (
