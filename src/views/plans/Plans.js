@@ -10,9 +10,10 @@ const dummyData = [
     description: [],
     content: "37 Ai Tools For <br /> Your Social Media Needs",
     style: {
-      background: `bg-indigo-600`,
-      color: `white`,
-      buttonVarient: `twoTone`,
+      background: `bg-white`,
+      color: `black`,
+      buttonBG: `bg-indigo-600`,
+      buttonVarient: `solid`,
     },
   },
   {
@@ -30,12 +31,16 @@ const dummyData = [
 ];
 
 const Plans = ({ inDialog = false, onCloseModal = undefined }) => {
-  const [plans, setPlans] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [plans, setPlans] = useState([]);
 
   useEffect(() => {
-    apiGetPlans().then((res) => {
-      setPlans(res.data.data);
-    });
+    setLoading(true);
+    apiGetPlans()
+      .then((res) => {
+        setPlans(res.data.data);
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   return (
@@ -44,23 +49,24 @@ const Plans = ({ inDialog = false, onCloseModal = undefined }) => {
         <h3 className="mb-1 mx-auto ">Plans</h3>
         <div className="mt-5 mx-auto max-w-[800px]">
           <div className="mx-auto content-center grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
-            {!plans ? (
-              <Spinner></Spinner>
-            ) : (
-              plans?.map((plan, idx) => (
-                <PlansCard
-                  key={plan.id}
-                  plan={plan}
-                  inDialog={inDialog}
-                  title={dummyData[idx].title}
-                  iconImg={dummyData[idx].image}
-                  description={dummyData[idx].description}
-                  onCloseModal={() => onCloseModal?.()}
-                  content={dummyData[idx].content}
-                  style={dummyData[idx].style}
-                ></PlansCard>
-              ))
-            )}
+            {loading && <Spinner></Spinner>}
+            {!loading &&
+              plans?.length >
+                0(
+                  plans?.map((plan, idx) => (
+                    <PlansCard
+                      key={plan.id}
+                      plan={plan}
+                      inDialog={inDialog}
+                      title={dummyData[idx].title}
+                      iconImg={dummyData[idx].image}
+                      description={dummyData[idx].description}
+                      onCloseModal={() => onCloseModal?.()}
+                      content={dummyData[idx].content}
+                      style={dummyData[idx].style}
+                    ></PlansCard>
+                  ))
+                )}
           </div>
         </div>
       </div>

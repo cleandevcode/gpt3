@@ -22,10 +22,10 @@ query getBlogDetail($filter: BlogModelFilter) {
     image {
       url
     }
+    description
   }
 }
 `;
-
 const BlogDetail = () => {
   const { id: slug } = useParams();
   const { loading, data } = useQuery(BLOG_DETAIL, {
@@ -37,11 +37,14 @@ const BlogDetail = () => {
       },
     },
   });
-  console.log({ data });
+  console.log(data);
 
   return (
     <div className="flex flex-col gap-4 h-full">
       <Loading loading={loading}>
+        <h3 className="my-5">{data?.blog?.title}</h3>
+        <p>{data?.blog?.content}</p>
+
         <div>
           <img
             src={data?.blog?.image?.url}
@@ -61,9 +64,9 @@ const BlogDetail = () => {
             </div>
             <span>{moment(data?.blog?.createdat).format("MMM DD, YYYY")}</span>
           </div>
-          <h3 className="my-5">{data?.blog?.title}</h3>
-          <p>{data?.blog?.content}</p>
         </div>
+
+        <p dangerouslySetInnerHTML={{ __html: data?.blog?.description }} />
       </Loading>
     </div>
   );
