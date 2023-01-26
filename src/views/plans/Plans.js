@@ -51,22 +51,20 @@ const Plans = ({ inDialog = false, onCloseModal = undefined }) => {
           <div className="mx-auto content-center grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
             {loading && <Spinner></Spinner>}
             {!loading &&
-              plans?.length >
-                0(
-                  plans?.map((plan, idx) => (
-                    <PlansCard
-                      key={plan.id}
-                      plan={plan}
-                      inDialog={inDialog}
-                      title={dummyData[idx].title}
-                      iconImg={dummyData[idx].image}
-                      description={dummyData[idx].description}
-                      onCloseModal={() => onCloseModal?.()}
-                      content={dummyData[idx].content}
-                      style={dummyData[idx].style}
-                    ></PlansCard>
-                  ))
-                )}
+              plans?.length > 0 &&
+              plans?.map((plan, idx) => (
+                <PlansCard
+                  key={plan.id}
+                  plan={plan}
+                  inDialog={inDialog}
+                  title={dummyData[idx].title}
+                  iconImg={dummyData[idx].image}
+                  description={dummyData[idx].description}
+                  onCloseModal={() => onCloseModal?.()}
+                  content={dummyData[idx].content}
+                  style={dummyData[idx].style}
+                ></PlansCard>
+              ))}
           </div>
         </div>
       </div>
