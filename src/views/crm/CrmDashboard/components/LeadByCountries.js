@@ -34,7 +34,7 @@ const LeadByCountries = ({ data = [], className}) => {
 
 	return (
 		<Card className={className}>
-			<h4>Lead By Countries</h4>
+			<h4> Users by Countries</h4>
 			<div className="grid lg:grid-cols-3 gap-4">
 				<div className="lg:col-span-2 px-4">
 					<RegionMap data={getMapColors(data)} valueSuffix="%" />

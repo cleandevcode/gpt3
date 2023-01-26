@@ -35,7 +35,7 @@ const CrmDashboard = () => {
           <LeadByCountries className="xl:col-span-5" data={leadByRegionData} />
           <EmailSent className="xl:col-span-2" data={emailSentData} />
         </div>
-        <Leads data={recentLeadsData} />
+        {/* <Leads data={recentLeadsData} /> */}
       </Loading>
     </div>
   );
