@@ -34,7 +34,7 @@ function useAuth() {
   const signIn = (values) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, values.email, values.password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         if (userCredential.user) {
           setAuthRes({
             status: "success",
@@ -43,7 +43,8 @@ function useAuth() {
           getIdToken(userCredential.user).then((token) => {
             dispatch(onSignInSuccess(token));
           });
-
+          const userDe = await apiGetUser({ uid: userCredential.user.uid });
+          dispatch(setUser(userDe.data));
           const redirectUrl = query.get(REDIRECT_URL_KEY);
           navigate(
             redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath
