@@ -34,32 +34,20 @@ function useAuth() {
   const signIn = (values) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, values.email, values.password)
-      .then(async (userCredential) => {
+      .then((userCredential) => {
         if (userCredential.user) {
           setAuthRes({
             status: "success",
             message: "",
           });
-
-          const userDe = await apiGetUser({ uid: userCredential.user.uid });
-          setAuthUSer(userDe.data);
-          dispatch(setUser(userDe.data));
-          setLoading(false);
-          if (
-            userDe?.data?.authority?.includes?.("premium") ||
-            userDe?.data?.authority?.includes?.("standard")
-          ) {
-            const redirectUrl = query.get(REDIRECT_URL_KEY);
-            navigate(
-              redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath
-            );
-          } else {
-            navigate(appConfig.unsubEntryPath);
-          }
-
           getIdToken(userCredential.user).then((token) => {
             dispatch(onSignInSuccess(token));
           });
+
+          const redirectUrl = query.get(REDIRECT_URL_KEY);
+          navigate(
+            redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath
+          );
         }
       })
       .catch((error) => {
