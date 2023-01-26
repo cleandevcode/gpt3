@@ -22,7 +22,7 @@ const sizes = [
 const Step2 = ({ onNext, onBack }) => {
   return (
     <div className="text-center">
-      <h3 className="mb-2">Tell us about your organization</h3>
+      <h3 className="mb-2">Tell us about yourself</h3>
       <div className="mt-8 max-w-[600px] lg:min-w-[600px] mx-auto">
         <Formik
           initialValues={{
@@ -42,7 +42,7 @@ const Step2 = ({ onNext, onBack }) => {
               <Form>
                 <FormContainer>
                   <FormItem
-                    label="Name of your organization"
+                    label="Is this for personal use or business use?"
                     invalid={
                       errors.organizationName && touched.organizationName
                     }
@@ -52,12 +52,12 @@ const Step2 = ({ onNext, onBack }) => {
                       type="text"
                       autoComplete="off"
                       name="organizationName"
-                      placeholder="Organization Name..."
+                      placeholder="Is this for personal use or business use"
                       component={Input}
                     />
                   </FormItem>
                   <FormItem
-                    label="Size of your organization"
+                    label="Size of your team"
                     invalid={
                       errors.organizationSize && touched.organizationSize
                     }
@@ -66,7 +66,7 @@ const Step2 = ({ onNext, onBack }) => {
                     <Field name="organizationSize">
                       {({ field, form }) => (
                         <Select
-                          placeholder="Organization Size..."
+                          placeholder="Size of your team"
                           field={field}
                           form={form}
                           options={sizes}
