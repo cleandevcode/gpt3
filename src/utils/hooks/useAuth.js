@@ -21,7 +21,7 @@ import { apiAddUser, apiGetPlans, apiGetUser } from "services/PlansServies";
 
 function useAuth() {
   const [authRes, setAuthRes] = useState({});
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -47,7 +47,6 @@ function useAuth() {
 
           const userDe = await apiGetUser({ uid: userCredential.user.uid });
           setLoading(false);
-          console.log("sign in>>>", userDe);
           if (
             userDe?.data?.authority?.includes?.("premium") ||
             userDe?.data?.authority?.includes?.("standard")
@@ -113,28 +112,28 @@ function useAuth() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => {
-    setLoading(true);
-    const unsubscribed = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const userDe = await apiGetUser({ uid: user.uid });
-        dispatch(setUser(userDe.data));
-        const fireToken = await getIdToken(user);
-        dispatch(onSignInSuccess(fireToken));
-      } else {
-        dispatch(
-          setUser({
-            avatar: "",
-            userName: "",
-            authority: [],
-            email: "",
-          })
-        );
-      }
-    });
-    setLoading(false);
-    return () => unsubscribed;
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const unsubscribed = onAuthStateChanged(auth, async (user) => {
+  //     if (user) {
+  //       const userDe = await apiGetUser({ uid: user.uid });
+  //       dispatch(setUser(userDe.data));
+  //       const fireToken = await getIdToken(user);
+  //       dispatch(onSignInSuccess(fireToken));
+  //     } else {
+  //       dispatch(
+  //         setUser({
+  //           avatar: "",
+  //           userName: "",
+  //           authority: [],
+  //           email: "",
+  //         })
+  //       );
+  //     }
+  //   });
+  //   setLoading(false);
+  //   return () => unsubscribed;
+  // }, []);
 
   const handleSignOut = () => {
     dispatch(onSignOutSuccess());
