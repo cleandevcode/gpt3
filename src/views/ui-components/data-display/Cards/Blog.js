@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Avatar } from "components/ui";
 import moment from "moment";
 import { TextEllipsis } from "components/shared";
-import { HiOutlineUser } from "react-icons/hi";
+import { HiClock, HiOutlineClock, HiOutlineUser } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { SUPPORT_RESOURCES_PREFIX_PATH } from "constants/route.constant";
 
@@ -11,8 +11,8 @@ const Blog = ({ blog }) => {
   const { title, author, content, image, createdat, slug } = blog;
 
   const cardFooter = (
-    <div className="flex items-center justify-between">
-      <div className="flex items-center ">
+    <div className="flex items-center justify-start my-2">
+      {/* <div className="flex items-center ">
         <Avatar
           size={35}
           className="mr-2"
@@ -24,7 +24,8 @@ const Blog = ({ blog }) => {
           <h6 className="text-sm">{author?.name}</h6>
           <span className="text-xs">{author?.job}</span>
         </span>
-      </div>
+      </div> */}
+      <HiOutlineClock className="mr-2" size={20} />
       <span className="text-sm">
         {moment(createdat).format("MMM DD, YYYY")}
       </span>
