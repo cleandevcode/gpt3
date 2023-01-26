@@ -79,6 +79,7 @@ const SideNav = () => {
   const isAuthorized =
     userAuthority?.includes("user") &&
     (userAuthority?.includes("standard") || userAuthority?.includes("premium"));
+  console.log("authority>>>>>>", userAuthority, isAuthorized);
   const menuContent = !isLoading ? (
     <VerticalMenuContent
       navMode={navMode}
