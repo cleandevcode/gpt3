@@ -33,7 +33,7 @@ export const SparkPlan = ({ className }) => {
             <div className="text-2xl ">
               <HiOutlineCreditCard />
             </div>
-            <span className="ml-1"> Upgrade Now</span>
+            <span className="ml-1"> Plan Options </span>
           </div>
         </Tooltip>
 

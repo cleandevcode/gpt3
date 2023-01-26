@@ -967,7 +967,7 @@ const appsNavigationConfig = [
       {
         key: "royaltyProgram",
         path: `${ROYALTY_PROGRAM_PREFIX_PATH}`,
-        title: "ROYALTY PROGRAM",
+        title: "LOYALTY PROGRAM",
         translateKey: "nav.royaltyProgram.root",
         icon: "gift",
         type: NAV_ITEM_TYPE_TITLE,

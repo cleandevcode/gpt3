@@ -4,7 +4,7 @@ import { Card, Progress } from 'components/ui'
 const ProgressInfo = ({precent}) => {
 	return (
 		<div>
-			<h3 className="font-bold">{precent}%</h3>
+			<h3 className="font-bold">88%</h3>
 			<p>Opened</p>
 		</div>
 	)
@@ -14,7 +14,7 @@ const EmailSent = ({data = [], className}) => {
 
 	return (
 		<Card className={className}>
-			<h4>Email Sent</h4>
+			<h4>Dashboard Speed</h4>
 			<div className="mt-6">
 				<Progress 
 					variant="circle" 
@@ -27,7 +27,7 @@ const EmailSent = ({data = [], className}) => {
 			</div>
 			<div className="text-center mt-6">
 				<p className="font-semibold">Performace</p>
-				<h4 className="font-bold">Average</h4>
+				<h4 className="font-bold">Phenomenal </h4>
 			</div>
 		</Card>
 	)
