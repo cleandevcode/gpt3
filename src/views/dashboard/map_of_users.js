@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { injectReducer } from "store";
 import LeadByCountries from "views/crm/CrmDashboard/components/LeadByCountries";
-import Leads from "views/crm/CrmDashboard/components/Leads";
 import { getCrmDashboardData } from "views/crm/CrmDashboard/store/dataSlice";
 import reducer from "views/crm/CrmDashboard/store";
 
@@ -30,7 +29,6 @@ const MapOfUsers = () => {
       <h3 className="mb-5">Maps Of Users</h3>
       <Loading loading={loading}>
         <LeadByCountries data={leadByRegionData} />
-        <Leads data={recentLeadsData} className="mt-3" />
       </Loading>
     </div>
   );

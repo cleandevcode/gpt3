@@ -76,7 +76,10 @@
     "support": {
       "root": "الدعم والموارد",
       "blogs": "المدونات",
-      "videoGuides": "أدلة الفيديو",
+      "videoGuides": {
+        "howTo": "كيف الفيديو",
+        "education": "مقاطع فيديو تعليمية"
+      },
       "faq": "التعليمات",
       "contactUs": "اتصل بنا"
     },

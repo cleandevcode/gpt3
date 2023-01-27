@@ -76,7 +76,10 @@
     "support": {
       "root": "SUPPORT & RESOURCES",
       "blogs": "Blogs",
-      "videoGuides": "Video Guides",
+      "videoGuides": {
+        "howTo": "How To Videos",
+        "education": "Educational Videos"
+      },
       "faq": "FAQ",
       "contactUs": "Contact Us"
     },
