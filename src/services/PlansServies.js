@@ -40,13 +40,14 @@ export async function updateProfile(payload, _id) {
   });
 }
 
-export async function updatePassword(payload, _id) {
+export async function updatePassword(data, headers) {
   return ApiService.fetchData({
-    url: `${process.env.REACT_APP_BASE_API_URL}/update-password/${_id}`,
-    method: "put",
-    payload,
+    url: `${process.env.REACT_APP_BASE_API_URL}/user/update-password`,
+    method: "post",
+    data,
+    headers
   });
-}
+};
 
 // export async function apiSignUp(data) {
 //     return ApiService.fetchData({

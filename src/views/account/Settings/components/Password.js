@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import classNames from "classnames";
 import {
   Input,
@@ -10,8 +11,11 @@ import {
 } from "components/ui";
 import FormDesription from "./FormDesription";
 import FormRow from "./FormRow";
+import { updatePassword } from "services/PlansServies";
 import { Field, Form, Formik } from "formik";
 import isLastChild from "utils/isLastChild";
+import { auth } from "store/auth/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import {
   HiOutlineDesktopComputer,
   HiOutlineDeviceMobile,
@@ -46,11 +50,33 @@ const validationSchema = Yup.object().shape({
 });
 
 const Password = ({ data }) => {
-  //TODO: Api  integration - update password /update-password/:id
-  const onFormSubmit = (values, setSubmitting) => {
-    toast.push(<Notification title={"Password updated"} type="success" />, {
-      placement: "top-center",
-    });
+  const { uid, email } = useSelector((state) => state.auth.user);
+  const { token } = useSelector((state) => state.auth.session);
+
+  const onFormSubmit = async (values, setSubmitting) => {
+    try {
+      const { password, newPassword } = values;
+      // confirm if current password is correct
+      const res = await signInWithEmailAndPassword(auth, email, password);
+      if (res.user) {
+        await updatePassword(
+          { uid, newPassword },
+          {
+            authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        );
+        toast.push(<Notification title={"Password updated successfully."} type="success" />, {
+          placement: "top-center",
+        });
+      }
+    } catch (error) {
+      if (error.code === "auth/wrong-password") {
+        toast.push(<Notification title={"Please input correct current password."} type="danger" />, {
+          placement: "top-center",
+        });
+      }
+    }
     setSubmitting(false);
   };
 
