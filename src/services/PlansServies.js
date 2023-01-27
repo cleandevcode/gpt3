@@ -32,11 +32,11 @@ export async function apiGetUser(headers) {
   });
 }
 
-export async function updateProfile(payload, _id) {
+export async function updateProfile(data, _id) {
   return ApiService.fetchData({
     url: `${process.env.REACT_APP_BASE_API_URL}/user/update-user/${_id}`,
     method: "put",
-    payload,
+    data,
   });
 }
 

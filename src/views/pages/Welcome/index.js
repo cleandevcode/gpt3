@@ -26,7 +26,7 @@ const Welcome = () => {
   );
   const authority = useSelector((state) => state?.auth?.user?.authority);
 
-  const { email, userName, uid } = useSelector((state) => state?.auth?.user);
+  const { email, userName, _id } = useSelector((state) => state?.auth?.user);
 
   const [surveyStep, setSurveyStep] = useState(0);
   const [creating, setCreating] = useState(false);
@@ -65,7 +65,7 @@ const Welcome = () => {
   };
 
   const handleCreateProfile = useCallback(async () => {
-    if (!userName || !email || !uid) return;
+    if (!userName || !email || !_id) return;
     const { title, organization, industry, language, timeZone, country } =
       creatingProfileData;
     const payload = {
@@ -79,14 +79,11 @@ const Welcome = () => {
       timeZone,
       country,
     };
-    // try {
-    //   await updateProfile(payload, uid);
-    // } catch (error) {
-    //   console.log("error>>>>", error);
-    // }
-
-    console.log("payload>>>>", payload);
-    console.log("uid>>>>", uid);
+    try {
+      await updateProfile(payload, _id, { 'Content-Type': 'application/json' });
+    } catch (error) {
+      console.log(error);
+    }
 
     //TODO: Api integration - /update-user/id
     setCreating(true);
@@ -100,7 +97,7 @@ const Welcome = () => {
       navigate(`/app/crm/dashboard`);
       localStorage.removeItem("new");
     }, 3000);
-  }, [creatingProfileData, email, userName, uid]);
+  }, [creatingProfileData, email, userName, _id]);
 
   if (creating) {
     return (
